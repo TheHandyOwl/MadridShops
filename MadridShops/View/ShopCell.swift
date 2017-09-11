@@ -14,7 +14,7 @@ class ShopCell: UICollectionViewCell {
         self.shop = shop
         
         self.label.text = shop.name
-        // TODO: imageView        
+        // TODO: imageView
         
     }
     

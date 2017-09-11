@@ -39,16 +39,14 @@ class MainViewController: UIViewController {
         
         // Gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(animateView))
-        tapGesture.numberOfTouchesRequired = 2 // Número de dedos
-        tapGesture.numberOfTapsRequired = 1 // Veces que los dedos golpean la pantalla
+        tapGesture.numberOfTouchesRequired = 1 // Número de dedos
+        tapGesture.numberOfTapsRequired = 2 // Veces que los dedos golpean la pantalla
         self.view.addGestureRecognizer(tapGesture)
         
-        /*
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(restoreView))
         tapGesture2.numberOfTouchesRequired = 2 // Número de dedos
         tapGesture2.numberOfTapsRequired = 1 // Veces que los dedos golpean la pantalla
         self.view.addGestureRecognizer(tapGesture2)
-         */
         
         // Swype gesture recognizer
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(restoreView))
