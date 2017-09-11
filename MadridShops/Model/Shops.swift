@@ -16,22 +16,22 @@ public protocol ShopsProtocol {
 
 public class Shops: ShopsProtocol {
     
-    private var shopList: [Shop]?
+    private var shopsList: [Shop]?
     
     public init(){
-        self.shopList = []
+        self.shopsList = []
     }
     
     public func count() -> Int {
-        return (shopList?.count)!
+        return (shopsList?.count)!
     }
     
     public func add(shop: Shop) {
-        shopList?.append(shop)
+        shopsList?.append(shop)
     }
     
     public func get(index: Int) -> Shop {
-        return (shopList?[index])!
+        return (shopsList?[index])!
     }
     
 }

@@ -26,7 +26,7 @@ class DownloadAllShopsInteractorFakeImplementation: DownloadAllShopsInteractor {
         
         OperationQueue.main.addOperation {
             onSuccess(shops)
-            // Que realmente está ejecutando el bloque que le mandé
+            // Que realmente está ejecutando el bloque que le mandé desde el VC
             /*
              downloadShopsInteractor.execute(onSuccess:
              

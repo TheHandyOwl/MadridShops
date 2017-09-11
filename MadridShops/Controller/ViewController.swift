@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Este es el comodín que cambiaremos cuando lo hagamos de verdad
-        let downloadShopsInteractor : DownloadAllShopsInteractor = DownloadAllShopsInteractorFakeImplementation()
+        //let downloadShopsInteractor : DownloadAllShopsInteractor = DownloadAllShopsInteractorFakeImplementation()
+        let downloadShopsInteractor : DownloadAllShopsInteractor = DownloadAllShopsInteractorNSOpImpl()
         /*
          downloadShopsInteractor.execute(onSuccess: { (shops: Shops) in
          // todo Ok

@@ -11,7 +11,9 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Como es opcional podemos ir a las bravas
-        // return (self.shops?.count())!
+        //return (self.shops?.count())!
+        //return self.shops!.count()
+        
         // O nos decantamos por hacer el unwrap
         if let shops = self.shops {
             return shops.count()

@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,12 +19,44 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vrL-jC-2VU"/>
+                        <segue destination="hnD-sD-YSZ" kind="relationship" relationship="rootViewController" id="uXT-wn-A1O"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D49-Uk-Xz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-690" y="97"/>
+            <point key="canvasLocation" x="-1236" y="96"/>
+        </scene>
+        <!--¡MAD!-->
+        <scene sceneID="5uj-V6-BWi">
+            <objects>
+                <viewController id="hnD-sD-YSZ" customClass="MainViewController" customModule="MadridShops" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CW8-lI-5bF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f8M-ar-hck">
+                                <rect key="frame" x="154" y="588" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="CBy-hE-eNq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="¡MAD!" id="a8Y-N8-KUG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="VN3-VL-PyH">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="8dY-bU-fGQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="redRectangle" destination="f8M-ar-hck" id="gAf-CY-1UC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tez-bd-x77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-535" y="95"/>
         </scene>
         <!--Shops-->
         <scene sceneID="tne-QT-ifu">
@@ -34,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FV1-jr-ODy">
-                                <rect key="frame" x="0.0" y="330" width="414" height="406"/>
+                                <rect key="frame" x="0.0" y="400" width="414" height="336"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="450-wV-bzn">
                                     <size key="itemSize" width="213" height="53"/>
@@ -71,14 +104,12 @@
                                 </cells>
                             </collectionView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ivj-dF-heD">
-                                <rect key="frame" x="0.0" y="64" width="414" height="266"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="266" id="Sks-L6-53g"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="414" height="336"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="FV1-jr-ODy" firstAttribute="height" secondItem="ivj-dF-heD" secondAttribute="height" id="Bed-lP-eRg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FV1-jr-ODy" secondAttribute="trailing" id="HQv-YF-akd"/>
                             <constraint firstItem="FV1-jr-ODy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MPv-GO-L9c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FV1-jr-ODy" secondAttribute="bottom" id="Z28-kJ-6kX"/>
@@ -96,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="96.195652173913047"/>
+            <point key="canvasLocation" x="146" y="95"/>
         </scene>
     </scenes>
 </document>

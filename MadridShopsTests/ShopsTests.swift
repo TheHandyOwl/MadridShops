@@ -13,7 +13,7 @@ import XCTest
 //OJO: Mejor hacer
 import MadridShops
 
-class ShopTests: XCTestCase {
+class ShopsTests: XCTestCase {
     
     func testGivenEmptyShopsNumberShopsIsZero() {
         // sut -> System Under Test
