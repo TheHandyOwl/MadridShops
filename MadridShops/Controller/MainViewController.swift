@@ -68,7 +68,7 @@ class MainViewController: UIViewController {
         
         // El layer es el rectángulo en memoria?
         self.redRectangle.layer.cornerRadius = self.redRectangle.layer.cornerRadius + 15
-        self.redRectangle.backgroundColor = UIColor.black
+        self.redRectangle.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
     }
     
@@ -89,7 +89,7 @@ class MainViewController: UIViewController {
             
             UIView.animate(withDuration: 1.0, animations: {
                 self.redRectangle.layer.cornerRadius = 0
-                self.redRectangle.backgroundColor = UIColor.red
+                self.redRectangle.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
             })
         }
     }
