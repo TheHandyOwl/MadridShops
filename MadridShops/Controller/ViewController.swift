@@ -14,32 +14,51 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Este es el comodín que cambiaremos cuando lo hagamos de verdad
         //let downloadShopsInteractor : DownloadAllShopsInteractor = DownloadAllShopsInteractorFakeImplementation()
-        let downloadShopsInteractor : DownloadAllShopsInteractor = DownloadAllShopsInteractorNSOpImpl()
+        //let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsInteractorNSOpImpl()
+        let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsInteractorNSURLSessionImpl()
         /*
          downloadShopsInteractor.execute(onSuccess: { (shops: Shops) in
-         // todo Ok
+         // todo OK
          }) { (error: Error) in
          // error
          }
          
          downloadShopsInteractor.execute(onSuccess: { (shops: Shops) in
-         // todo Ok
+         // todo OK
          })
          */
-        // Esto le manda un bloque que ejecutará más tarde en el execute
-        downloadShopsInteractor.execute(onSuccess: { (shops: Shops) in
-            // todo Ok
-            print(shops.get(index: 0).name)
+        
+        downloadShopsInteractor.execute { (shops: Shops) in
+            // todo OK
+            print("Name: " + shops.get(index: 0).name)
             self.shops = shops
             
             // Esto se activa aquí para tener alguna tienda
             // Si lo vinculamos antes no tendremos tiendas y no se mostrará nada
             self.shopsCollectionView.delegate = self
             self.shopsCollectionView.dataSource = self
-            
-        })
+        }
+        
     }
-
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let shop = self.shops?.get(index: indexPath.row)
+        self.performSegue(withIdentifier: "ShowShopDetailSegue", sender: shop)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowShopDetailSegue" {
+            let vc = segue.destination as! ShopDetailViewController // Es un IUVC
+            // HAcemos casting minuto 90 aprox
+            
+            // let indexPath = self.shopsCollectionView.indexPathsForSelectedItems![0]
+            // let shop = self.shops?.get(index: indexPath.row)
+            //vc.shop = shop
+            vc.shop = sender as! Shop
+            
+        }
+    }
+    
 }
-

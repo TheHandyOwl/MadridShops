@@ -14,4 +14,3 @@ end
 target 'MadridShopsTests' do
     common_pods
 end
-

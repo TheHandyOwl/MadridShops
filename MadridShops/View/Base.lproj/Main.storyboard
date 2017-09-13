@@ -123,11 +123,45 @@
                     <navigationItem key="navigationItem" title="Shops" id="Kcs-Ws-gWn"/>
                     <connections>
                         <outlet property="shopsCollectionView" destination="FV1-jr-ODy" id="lxL-sm-nMd"/>
+                        <segue destination="Qb3-xL-HFS" kind="showDetail" identifier="ShowShopDetailSegue" id="kW2-xF-ew8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="146" y="95"/>
+        </scene>
+        <!--Shop Detail View Controller-->
+        <scene sceneID="IeA-Ta-qj3">
+            <objects>
+                <viewController id="Qb3-xL-HFS" customClass="ShopDetailViewController" customModule="MadridShops" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hRv-6f-eKh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUU-tW-rNK">
+                                <rect key="frame" x="37" y="455" width="336" height="248"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dsI-mf-ZvS">
+                                <rect key="frame" x="37" y="62" width="336" height="362"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem fistrum sexuarl ese hombree a gramenawer pupita qué dise usteer está la cosa muy malar a wan ese que llega ese pedazo de diodeno. Caballo blanco caballo negroorl por la gloria de mi madre diodeno se calle ustée qué dise usteer de la pradera va usté muy cargadoo. Diodenoo te va a hasé pupitaa ese pedazo de apetecan está la cosa muy malar condemor caballo blanco caballo negroorl no puedor te va a hasé pupitaa condemor pecador. La caidita ese que llega jarl la caidita está la cosa muy malar jarl jarl. De la pradera a gramenawer de la pradera al ataquerl. Te va a hasé pupitaa va usté muy cargadoo la caidita apetecan sexuarl. Apetecan ese que llega benemeritaar diodeno jarl de la pradera. Diodenoo no te digo trigo por no llamarte Rodrigor de la pradera quietooor a wan.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="MlH-jL-o1F"/>
+                    </view>
+                    <connections>
+                        <outlet property="shopDetailDescription" destination="dsI-mf-ZvS" id="NFw-CQ-QTp"/>
+                        <outlet property="shopImage" destination="yUU-tW-rNK" id="zP5-DT-lm7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-as-Zon" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="94.565217391304358"/>
         </scene>
     </scenes>
 </document>
