@@ -2,9 +2,11 @@
 //  MadridShops
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
+    var context: NSManagedObjectContext!
     // Lo ponemos opcional porque se queja
     var shops: Shops?
 
@@ -37,6 +39,19 @@ class ViewController: UIViewController {
             // Si lo vinculamos antes no tendremos tiendas y no se mostrará nada
             self.shopsCollectionView.delegate = self
             self.shopsCollectionView.dataSource = self
+            
+            // Guardamos el contexto
+            let cacheInteractor = SaveAllShopsInteractorImpl()
+            cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
+                // Buscando el contexto
+                
+                // esto lo pongo yo
+                do{
+                    try self.context.save()
+                } catch {
+                    
+                }
+            })
         }
         
     }
