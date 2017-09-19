@@ -38,6 +38,8 @@
 		07B06D0C1F61F54C001A3120 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B06D0B1F61F54C001A3120 /* MapKit.framework */; };
 		07B06D0E1F61F6E3001A3120 /* ViewController+CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B06D0D1F61F6E3001A3120 /* ViewController+CollectionViewController.swift */; };
 		07B06D101F61FA3D001A3120 /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B06D0F1F61FA3D001A3120 /* ShopCell.swift */; };
+		07E1F3441F71CEBA002FEB96 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1F3431F71CEBA002FEB96 /* Activity.swift */; };
+		07E1F3461F71CECC002FEB96 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1F3451F71CECC002FEB96 /* Activities.swift */; };
 		45F112A2937196E92D6B7302 /* Pods_MadridShops.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD37DB1028C194001593C3DD /* Pods_MadridShops.framework */; };
 		5C6D5B081E4A35DEBA201E3D /* Pods_MadridShopsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C823A92975CE24E335055FC2 /* Pods_MadridShopsTests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,8 @@
 		07B06D0B1F61F54C001A3120 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		07B06D0D1F61F6E3001A3120 /* ViewController+CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionViewController.swift"; sourceTree = "<group>"; };
 		07B06D0F1F61FA3D001A3120 /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
+		07E1F3431F71CEBA002FEB96 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		07E1F3451F71CECC002FEB96 /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		5B2BB0B0256814EA7FD34127 /* Pods-MadridShops.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MadridShops.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MadridShops/Pods-MadridShops.debug.xcconfig"; sourceTree = "<group>"; };
 		9337A73F473D2284B0D4608D /* Pods-MadridShopsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MadridShopsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MadridShopsTests/Pods-MadridShopsTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD37DB1028C194001593C3DD /* Pods_MadridShops.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MadridShops.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +153,8 @@
 				072E5DE11F70534D0057FAC5 /* Mappers */,
 				072ACF3E1F69A459007446B3 /* Json Parser */,
 				07B06D031F61E080001A3120 /* Interactors */,
+				07E1F3431F71CEBA002FEB96 /* Activity.swift */,
+				07E1F3451F71CECC002FEB96 /* Activities.swift */,
 				074A37241F61D2DA00091C1D /* Shop.swift */,
 				074A37261F61D4F900091C1D /* Shops.swift */,
 				076267A61F6B271D00D31FF1 /* MadridShops.xcdatamodeld */,
@@ -502,6 +508,7 @@
 				07B06D101F61FA3D001A3120 /* ShopCell.swift in Sources */,
 				072ACF441F69AABA007446B3 /* JsonParser.swift in Sources */,
 				076267AD1F6B357D00D31FF1 /* SaveAllShopsInteractor.swift in Sources */,
+				07E1F3441F71CEBA002FEB96 /* Activity.swift in Sources */,
 				077190E71F61D01C007DEC27 /* ViewController.swift in Sources */,
 				072E5DE51F7061550057FAC5 /* ExecuteOnceInteractor.swift in Sources */,
 				077190E51F61D01C007DEC27 /* AppDelegate.swift in Sources */,
@@ -510,6 +517,7 @@
 				072E5DE31F7053930057FAC5 /* MapShops.swift in Sources */,
 				072ACF3D1F69A354007446B3 /* ShopDetailViewController.swift in Sources */,
 				07B06D091F61EA19001A3120 /* DownloadAllShopsInteractorFakeImplementation.swift in Sources */,
+				07E1F3461F71CECC002FEB96 /* Activities.swift in Sources */,
 				07035BAB1F673C9E001B53D4 /* DownloadAllShopsInteractorNSOpImpl.swift in Sources */,
 				07B06D0E1F61F6E3001A3120 /* ViewController+CollectionViewController.swift in Sources */,
 				072E5DEB1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift in Sources */,
