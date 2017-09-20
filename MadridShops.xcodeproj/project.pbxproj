@@ -32,6 +32,7 @@
 		077190EA1F61D01C007DEC27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077190E81F61D01C007DEC27 /* Main.storyboard */; };
 		077190EC1F61D01C007DEC27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077190EB1F61D01C007DEC27 /* Assets.xcassets */; };
 		077190EF1F61D01C007DEC27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077190ED1F61D01C007DEC27 /* LaunchScreen.storyboard */; };
+		07939FBE1F730E1F00A9B721 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */; };
 		07B06D051F61E15A001A3120 /* DownloadAllShopsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B06D041F61E15A001A3120 /* DownloadAllShopsInteractor.swift */; };
 		07B06D071F61E9D9001A3120 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B06D061F61E9D9001A3120 /* Typealias.swift */; };
 		07B06D091F61EA19001A3120 /* DownloadAllShopsInteractorFakeImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B06D081F61EA19001A3120 /* DownloadAllShopsInteractorFakeImplementation.swift */; };
@@ -86,6 +87,7 @@
 		077190F01F61D01C007DEC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		077190F51F61D01C007DEC27 /* MadridShopsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadridShopsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		077190FB1F61D01C007DEC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		07B06D041F61E15A001A3120 /* DownloadAllShopsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsInteractor.swift; sourceTree = "<group>"; };
 		07B06D061F61E9D9001A3120 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		07B06D081F61EA19001A3120 /* DownloadAllShopsInteractorFakeImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsInteractorFakeImplementation.swift; sourceTree = "<group>"; };
@@ -179,10 +181,11 @@
 		074A37221F61D1C000091C1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				077190E61F61D01C007DEC27 /* ViewController.swift */,
-				07B06D0D1F61F6E3001A3120 /* ViewController+CollectionViewController.swift */,
+				07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */,
 				07035BA81F671E0A001B53D4 /* MainViewController.swift */,
 				072ACF3C1F69A354007446B3 /* ShopDetailViewController.swift */,
+				077190E61F61D01C007DEC27 /* ViewController.swift */,
+				07B06D0D1F61F6E3001A3120 /* ViewController+CollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				072E5DEB1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift in Sources */,
 				072ACF411F69A49C007446B3 /* DownloadAllShopsInteractorNSURLSessionImpl.swift in Sources */,
 				07E1F3481F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift in Sources */,
+				07939FBE1F730E1F00A9B721 /* ActivitiesViewController.swift in Sources */,
 				07B06D071F61E9D9001A3120 /* Typealias.swift in Sources */,
 				076267AA1F6B285200D31FF1 /* CoreDataStack.swift in Sources */,
 				07B06D051F61E15A001A3120 /* DownloadAllShopsInteractor.swift in Sources */,

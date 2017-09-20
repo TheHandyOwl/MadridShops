@@ -30,14 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let shop = ShopCD(context: self.context!)
         shop.name = "Test"
         self.cds.saveContext(context: self.context!)
- */
+         */
 
-        //Testing it works before refactoring
-        let downloadActivitiesInteractor: DownloadAllActivitiesInteractor = DownloadAllActivitiesInteractorFakeImplementation()
-        
-        downloadActivitiesInteractor.execute { (activities: Activities) in
-            print("Activity name: " + activities.get(index: 0).name)
-        }
         
         return true
     }
