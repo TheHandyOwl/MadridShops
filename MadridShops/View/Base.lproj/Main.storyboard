@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,11 +45,18 @@
                         <viewLayoutGuide key="safeArea" id="CBy-hE-eNq"/>
                     </view>
                     <navigationItem key="navigationItem" title="¡MAD!" id="a8Y-N8-KUG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="VN3-VL-PyH">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="ShowShopsSegue" id="8dY-bU-fGQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Shops" id="VN3-VL-PyH">
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowShopsSegue" id="8dY-bU-fGQ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Activities" id="rfa-Ng-z7X">
+                                <connections>
+                                    <segue destination="Uam-Gi-sWa" kind="show" identifier="ShowActivitiesSegue" id="WtC-NA-116"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="redRectangle" destination="f8M-ar-hck" id="gAf-CY-1UC"/>
@@ -130,6 +138,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="146" y="95"/>
+        </scene>
+        <!--Activities-->
+        <scene sceneID="vd3-O7-qKK">
+            <objects>
+                <viewController id="Uam-Gi-sWa" customClass="ActivitiesViewController" customModule="MadridShops" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FQI-B9-YF2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="K8M-40-hE8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Activities" id="gHb-mF-Mlz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpz-H0-rwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="144.92753623188406" y="766.304347826087"/>
         </scene>
         <!--Shop Detail View Controller-->
         <scene sceneID="IeA-Ta-qj3">

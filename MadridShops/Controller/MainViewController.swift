@@ -103,6 +103,11 @@ class MainViewController: UIViewController {
             let vc = segue.destination as! ViewController
             vc.context = self.context
         }
+
+        if segue.identifier == "ShowActivitiesSegue" {
+            let vc = segue.destination as! ActivitiesViewController
+        }
+        
     }
 
 }

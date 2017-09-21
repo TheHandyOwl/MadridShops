@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let shop = ShopCD(context: self.context!)
         shop.name = "Test"
         self.cds.saveContext(context: self.context!)
- */
+         */
+
         
         return true
     }
