@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var map: MKMapView!
     
     let locationManager = CLLocationManager()
+    let fileToDownloadAndSaveOnce = "ShopsSavedOnce"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +24,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
 
-        ExecuteOnceInteractorImpl().execute {
+        ExecuteOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce) {
             initializedData()
-
         }
 
         // Lo subimos aquí
@@ -69,7 +69,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             // Guardamos el contexto
             let cacheInteractor = SaveAllShopsInteractorImpl()
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
-                SetExecutedOnceInteractorImpl().execute()
+                SetExecutedOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce)
                 
                 // Bajamos aquí y mostramos aquí
                 // Pero finalmente lo subimos arriba y también lo dejamos aquí

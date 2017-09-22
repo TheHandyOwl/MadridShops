@@ -14,9 +14,8 @@ class ActivitiesDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = self.activity.name
-        self.activityDetailDescription.text = self.activity.name
-        //self.activityDetailDescription.text = self.activity.description
-        //self.activity.image.loadImage(into: activityImage)
+        self.activityDetailDescription.text = self.activity.description
+        self.activity.image.loadImage(into: activityImage)
 
     }
 
