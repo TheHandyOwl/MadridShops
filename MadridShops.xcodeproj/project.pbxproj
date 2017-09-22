@@ -19,6 +19,7 @@
 		072E5DE71F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE61F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift */; };
 		072E5DE91F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE81F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift */; };
 		072E5DEB1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DEA1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift */; };
+		07395C561F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07395C551F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift */; };
 		074A37251F61D2DA00091C1D /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A37241F61D2DA00091C1D /* Shop.swift */; };
 		074A37271F61D4F900091C1D /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A37261F61D4F900091C1D /* Shops.swift */; };
 		074A37291F61DA8300091C1D /* ShopsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A37281F61DA8300091C1D /* ShopsTests.swift */; };
@@ -76,6 +77,7 @@
 		072E5DE61F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExecutedOnceInteractor.swift; sourceTree = "<group>"; };
 		072E5DE81F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExecutedOnceInteractorImpl.swift; sourceTree = "<group>"; };
 		072E5DEA1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractorImpl.swift; sourceTree = "<group>"; };
+		07395C551F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllActivitiesInteractorNSURLSessionImpl.swift; sourceTree = "<group>"; };
 		074A37241F61D2DA00091C1D /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		074A37261F61D4F900091C1D /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
 		074A37281F61DA8300091C1D /* ShopsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsTests.swift; sourceTree = "<group>"; };
@@ -195,13 +197,13 @@
 		074A37221F61D1C000091C1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */,
 				079A6CDF1F74678500C7EA28 /* ActivitiesDetailViewController.swift */,
+				07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */,
+				079A6CE71F7480AB00C7EA28 /* ActivitiesVC+CollectionVC.swift */,
 				07035BA81F671E0A001B53D4 /* MainViewController.swift */,
 				072ACF3C1F69A354007446B3 /* ShopDetailViewController.swift */,
 				077190E61F61D01C007DEC27 /* ViewController.swift */,
 				07B06D0D1F61F6E3001A3120 /* ViewController+CollectionViewController.swift */,
-				079A6CE71F7480AB00C7EA28 /* ActivitiesVC+CollectionVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +277,7 @@
 				076267AB1F6B351D00D31FF1 /* CacheInteractors */,
 				07E1F3471F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift */,
 				07E1F3491F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift */,
+				07395C551F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift */,
 				07B06D041F61E15A001A3120 /* DownloadAllShopsInteractor.swift */,
 				07B06D081F61EA19001A3120 /* DownloadAllShopsInteractorFakeImplementation.swift */,
 				07035BAA1F673C9E001B53D4 /* DownloadAllShopsInteractorNSOpImpl.swift */,
@@ -565,6 +568,7 @@
 				079A6CEA1F74822000C7EA28 /* ActivityCell.swift in Sources */,
 				076267A81F6B271D00D31FF1 /* MadridShops.xcdatamodeld in Sources */,
 				072ACF451F69AB3A007446B3 /* String+Image.swift in Sources */,
+				07395C561F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
