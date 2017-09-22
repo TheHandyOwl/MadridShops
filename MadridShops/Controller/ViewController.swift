@@ -9,7 +9,6 @@ import MapKit
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var context: NSManagedObjectContext!
-    // Lo ponemos opcional porque se queja
     var shops: Shops?
 
     @IBOutlet weak var shopsCollectionView: UICollectionView!
