@@ -4,7 +4,7 @@
 import Foundation
 
 protocol ExecuteOnceInteractor {
-    func execute(closure: () -> Void)
+    func execute(item: String, closure: () -> Void)
 }
 
 

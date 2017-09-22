@@ -28,3 +28,29 @@ func parseShops(data: Data) -> Shops {
     
     return shops
 }
+
+func parseActivities(data: Data) -> Activities {
+    
+    let activities = Activities()
+    
+    do {
+        
+        let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! Dictionary<String, Any>
+        let result = jsonObject["result"] as! [Dictionary<String, Any>]
+        
+        for activityJson in result {
+            let activity = Activity(name: activityJson["name"]! as! String)
+            activity.address = activityJson["address"]! as! String
+            activity.logo = activityJson["logo_img"]! as! String
+            activity.image = activityJson["img"]! as! String
+            activity.description = activityJson["description_en"]! as! String
+            
+            activities.add(activity: activity)
+        }
+        
+    } catch {
+        print("Error parsing JSON")
+    }
+    
+    return activities
+}

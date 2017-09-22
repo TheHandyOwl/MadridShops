@@ -15,6 +15,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var activitiesCollectionView: UICollectionView!
     
     let locationManager = CLLocationManager()
+    let fileToDownloadAndSaveOnce = "ActivitiesSavedOnce"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +24,9 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
         
-        initializedData()
-        /*
-        ExecuteOnceInteractorImpl().execute {
+        ExecuteOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce) {
             initializedData()
         }
-         */
 
         self.activitiesCollectionView.delegate = self
         self.activitiesCollectionView.dataSource = self
@@ -39,7 +37,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     func initializedData() {
-        let downloadActivitiesInteractor: DownloadAllActivitiesInteractor = DownloadAllActivitiesInteractorFakeImplementation()
+        let downloadActivitiesInteractor: DownloadAllActivitiesInteractor = DownloadAllActivitiesInteractorNSURLSessionImpl()
         
         downloadActivitiesInteractor.execute { (activities: Activities) in
             print("Activity name: " + activities.get(index: 0).name)
@@ -47,7 +45,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate {
             
             let cacheInteractor = SaveAllActivitiesInteractorImpl()
             cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
-                SetExecutedOnceInteractorImpl().execute()
+                SetExecutedOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce)
                 
                 self._fetchedResultsController = nil
                 self.activitiesCollectionView.delegate = self
