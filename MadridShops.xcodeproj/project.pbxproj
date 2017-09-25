@@ -214,6 +214,7 @@
 		074A37231F61D1C600091C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				077190EB1F61D01C007DEC27 /* Assets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -259,7 +260,6 @@
 				074A37201F61D1B200091C1D /* Model */,
 				074A37211F61D1B900091C1D /* View */,
 				072ACF421F69A715007446B3 /* Util */,
-				077190EB1F61D01C007DEC27 /* Assets.xcassets */,
 				077190F01F61D01C007DEC27 /* Info.plist */,
 			);
 			path = MadridShops;
