@@ -34,6 +34,7 @@
 		077190EC1F61D01C007DEC27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077190EB1F61D01C007DEC27 /* Assets.xcassets */; };
 		077190EF1F61D01C007DEC27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077190ED1F61D01C007DEC27 /* LaunchScreen.storyboard */; };
 		07939FBE1F730E1F00A9B721 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */; };
+		0797408D1F787FE900D15DFE /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0797408C1F787FE900D15DFE /* MapPin.swift */; };
 		079A6CE01F74678500C7EA28 /* ActivitiesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A6CDF1F74678500C7EA28 /* ActivitiesDetailViewController.swift */; };
 		079A6CE21F74728A00C7EA28 /* SaveAllActivitiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A6CE11F74728A00C7EA28 /* SaveAllActivitiesInteractor.swift */; };
 		079A6CE41F7472A100C7EA28 /* SaveAllActivitiesInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A6CE31F7472A100C7EA28 /* SaveAllActivitiesInteractorImpl.swift */; };
@@ -96,6 +97,7 @@
 		077190F51F61D01C007DEC27 /* MadridShopsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadridShopsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		077190FB1F61D01C007DEC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		0797408C1F787FE900D15DFE /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		079A6CDF1F74678500C7EA28 /* ActivitiesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDetailViewController.swift; sourceTree = "<group>"; };
 		079A6CE11F74728A00C7EA28 /* SaveAllActivitiesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAllActivitiesInteractor.swift; sourceTree = "<group>"; };
 		079A6CE31F7472A100C7EA28 /* SaveAllActivitiesInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAllActivitiesInteractorImpl.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				076267A91F6B285200D31FF1 /* CoreDataStack.swift */,
 				072ACF431F69A728007446B3 /* String+Image.swift */,
+				0797408C1F787FE900D15DFE /* MapPin.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0797408D1F787FE900D15DFE /* MapPin.swift in Sources */,
 				074A37251F61D2DA00091C1D /* Shop.swift in Sources */,
 				079A6CE21F74728A00C7EA28 /* SaveAllActivitiesInteractor.swift in Sources */,
 				072E5DE71F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift in Sources */,

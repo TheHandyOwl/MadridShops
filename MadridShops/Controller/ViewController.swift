@@ -6,11 +6,11 @@ import CoreData
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var context: NSManagedObjectContext!
     var shops: Shops?
-
+    
     @IBOutlet weak var shopsCollectionView: UICollectionView!
     @IBOutlet weak var map: MKMapView!
     
@@ -23,57 +23,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
-
+        
+        self.map.delegate = self
+        
         ExecuteOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce) {
             initializedData()
         }
-
+        
         // Lo subimos aquí
         self.shopsCollectionView.delegate = self
         self.shopsCollectionView.dataSource = self
         
         // Centrar el mapa
-        let madridLocation = CLLocation(latitude: 40.416775, longitude: -3.703790)
-        self.map.setCenter(madridLocation.coordinate, animated: true)
-
+        let madridLocation = CLLocation(latitude: 40.416646, longitude: -3.703818)
+        //self.map.setCenter(madridLocation.coordinate, animated: true)
+        let region = MKCoordinateRegion(center: madridLocation.coordinate, span: MKCoordinateSpanMake(0.1, 0.1))
+        self.map.setRegion(region, animated: true)
+        
     }
     
     func initializedData() {
-        // Este es el comodín que cambiaremos cuando lo hagamos de verdad
-        //let downloadShopsInteractor : DownloadAllShopsInteractor = DownloadAllShopsInteractorFakeImplementation()
-        //let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsInteractorNSOpImpl()
         let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsInteractorNSURLSessionImpl()
-        /*
-         downloadShopsInteractor.execute(onSuccess: { (shops: Shops) in
-         // todo OK
-         }) { (error: Error) in
-         // error
-         }
-         
-         downloadShopsInteractor.execute(onSuccess: { (shops: Shops) in
-         // todo OK
-         })
-         */
         
         downloadShopsInteractor.execute { (shops: Shops) in
-            // todo OK
             print("Name: " + shops.get(index: 0).name)
             self.shops = shops
-            
-            // Esto se activa aquí para tener alguna tienda
-            // Si lo vinculamos antes no tendremos tiendas y no se mostrará nada
-            // Con Core Data hemos descargado la info pero no la hemos guardado. Debería ir en el execute?
-            //self.shopsCollectionView.delegate = self
-            //self.shopsCollectionView.dataSource = self
             
             // Guardamos el contexto
             let cacheInteractor = SaveAllShopsInteractorImpl()
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
                 SetExecutedOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce)
                 
-                // Bajamos aquí y mostramos aquí
-                // Pero finalmente lo subimos arriba y también lo dejamos aquí
-                self._fetchedResultsController = nil // Para corregir que está a 0 al arrancar la app
+                self._fetchedResultsController = nil
                 self.shopsCollectionView.delegate = self
                 self.shopsCollectionView.dataSource = self
                 self.shopsCollectionView.reloadData()
@@ -92,13 +73,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowShopDetailSegue" {
-            let vc = segue.destination as! ShopDetailViewController // Es un IUVC
-            // HAcemos casting minuto 90 aprox
-            
-            // let indexPath = self.shopsCollectionView.indexPathsForSelectedItems![0]
-            // let shop = self.shops?.get(index: indexPath.row)
-            //vc.shop = shop
-            let shopCD: ShopCD = sender as! ShopCD // No sabe de qué tipo es el sender, se lo decimos
+            let vc = segue.destination as! ShopDetailViewController
+            let shopCD: ShopCD = sender as! ShopCD
             //vc.shop = sender as! Shop
             vc.shop = mapShopCDIntoShop(shopCD: shopCD)
             
@@ -118,27 +94,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         //let fetchRequest: NSFetchRequest<Event> = Event.fetchRequest()
         let fetchRequest: NSFetchRequest<ShopCD> = ShopCD.fetchRequest()
-
+        
         // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
-        //fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        // Edit the section name key path and cache name if appropriate.
-        // nil for section name key path means "no sections".
-        // fetchRequest == SELECT * FROM EVENT ORDER BY TIMESTAMP DESC <<<---
-        //let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
-        //let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
         _fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
         //aFetchedResultsController.delegate = self
         //_fetchedResultsController = aFetchedResultsController
         
         do {
-            // Aquí se hace la primera consulta
             try _fetchedResultsController!.performFetch()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
@@ -146,10 +113,80 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         return _fetchedResultsController!
     }
     
+    
+    // MARK: - CLLocationManager Delegate
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Centramos el mapa al movernos
         let location = locations[0]
         self.map.setCenter(location.coordinate, animated: true)
     }
+    
+    
+    // MARK: - MKMapViewDelegate Delegate
+    // Tells the delegate that the map view is about to start rendering some of its tiles
+    func mapViewWillStartRenderingMap(_ mapView: MKMapView) {
+        print("Start rendering")
+    }
+    
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        print("Finish rendering")
+        
+        let km0 = MapPin(coordinate: CLLocationCoordinate2D(latitude: 40.416676, longitude: -3.703878))
+        km0.title = "Punto kilométrico 0"
+        km0.subtitle = "El centro de España"
+        
+        self.map.addAnnotation(km0)
+        
+        if let shops = fetchedResultsController.fetchedObjects {
+            for shop in shops {
+                let shopLocation = CLLocation(latitude: Double(shop.latitude), longitude: Double(shop.longitude))
+                print("La latitud es: \((shop.latitude)) y longitud \((shop.longitude))")
+                let shopPin = MapPin(coordinate: shopLocation.coordinate, title: shop.name!, subtitle: shop.address!)
+                print("shopPin: \(shopPin)")
+                self.map.addAnnotation(shopPin)
+            }
+        }
+        
+    }
+    
+    // Tells the delegate that the specified map view is about to retrieve some map data
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+        print("Start loading")
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        print("Finish loading")
+    }
+    
+    // Pin items
+    /*
+     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+     // Don't want to show a custom image if the annotation is the user's location.
+     guard !(annotation is MKUserLocation) else {
+     return nil
+     }
+     
+     // Better to make this class property
+     let annotationIdentifier = "AnnotationIdentifier"
+     
+     var annotationView: MKAnnotationView?
+     if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+     annotationView = dequeuedAnnotationView
+     annotationView?.annotation = annotation
+     }
+     else {
+     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+     annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+     }
+     
+     if let annotationView = annotationView {
+     // Configure your annotation view here
+     annotationView.canShowCallout = true
+     //annotationView.image = UIImage(named: "marker")
+     }
+     
+     return annotationView
+     }
+     */
     
 }
