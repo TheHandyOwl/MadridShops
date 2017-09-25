@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,11 +45,18 @@
                         <viewLayoutGuide key="safeArea" id="CBy-hE-eNq"/>
                     </view>
                     <navigationItem key="navigationItem" title="¡MAD!" id="a8Y-N8-KUG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="VN3-VL-PyH">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="ShowShopsSegue" id="8dY-bU-fGQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Shops" id="VN3-VL-PyH">
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowShopsSegue" id="8dY-bU-fGQ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Activities" id="rfa-Ng-z7X">
+                                <connections>
+                                    <segue destination="Uam-Gi-sWa" kind="show" identifier="ShowActivitiesSegue" id="WtC-NA-116"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="redRectangle" destination="f8M-ar-hck" id="gAf-CY-1UC"/>
@@ -131,6 +139,113 @@
             </objects>
             <point key="canvasLocation" x="146" y="95"/>
         </scene>
+        <!--Activities-->
+        <scene sceneID="vd3-O7-qKK">
+            <objects>
+                <viewController id="Uam-Gi-sWa" customClass="ActivitiesViewController" customModule="MadridShops" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FQI-B9-YF2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqN-eZ-ltz">
+                                <rect key="frame" x="0.0" y="64" width="414" height="336"/>
+                            </mapView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-s5-RSX">
+                                <rect key="frame" x="0.0" y="400" width="414" height="336"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="npN-iN-riE">
+                                    <size key="itemSize" width="264" height="54"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ActivityCell" id="NR6-R3-S3b" customClass="ActivityCell" customModule="MadridShops" customModuleProvider="target">
+                                        <rect key="frame" x="75" y="0.0" width="264" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="264" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hsC-jL-4b9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="54"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pg9-Ly-QSv">
+                                                    <rect key="frame" x="88" y="11" width="156" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="hsC-jL-4b9" id="a7g-O2-NIY"/>
+                                            <outlet property="label" destination="Pg9-Ly-QSv" id="0IV-88-nAc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="K8M-40-hE8" firstAttribute="trailing" secondItem="NqN-eZ-ltz" secondAttribute="trailing" id="0pj-cS-Fg9"/>
+                            <constraint firstItem="NqN-eZ-ltz" firstAttribute="leading" secondItem="K8M-40-hE8" secondAttribute="leading" id="3HE-rS-G38"/>
+                            <constraint firstItem="cdN-s5-RSX" firstAttribute="height" secondItem="NqN-eZ-ltz" secondAttribute="height" id="59Q-ri-6Aa"/>
+                            <constraint firstItem="K8M-40-hE8" firstAttribute="bottom" secondItem="cdN-s5-RSX" secondAttribute="bottom" id="H8P-ic-cy5"/>
+                            <constraint firstItem="cdN-s5-RSX" firstAttribute="top" secondItem="NqN-eZ-ltz" secondAttribute="bottom" id="UNz-EM-xBQ"/>
+                            <constraint firstItem="NqN-eZ-ltz" firstAttribute="top" secondItem="K8M-40-hE8" secondAttribute="top" id="Vud-1g-q3u"/>
+                            <constraint firstItem="cdN-s5-RSX" firstAttribute="leading" secondItem="K8M-40-hE8" secondAttribute="leading" id="kZa-eo-3iD"/>
+                            <constraint firstItem="K8M-40-hE8" firstAttribute="trailing" secondItem="cdN-s5-RSX" secondAttribute="trailing" id="mW5-fB-yK4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K8M-40-hE8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Activities" id="gHb-mF-Mlz"/>
+                    <connections>
+                        <outlet property="activitiesCollectionView" destination="cdN-s5-RSX" id="gM1-aW-d1x"/>
+                        <outlet property="map" destination="NqN-eZ-ltz" id="9JX-Pl-Byf"/>
+                        <segue destination="qVr-0d-d6K" kind="show" identifier="ShowActivityDetailSegue" id="TKj-Bu-zfn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpz-H0-rwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="146" y="1010"/>
+        </scene>
+        <!--Activities Detail View Controller-->
+        <scene sceneID="hNC-pm-CjM">
+            <objects>
+                <viewController id="qVr-0d-d6K" customClass="ActivitiesDetailViewController" customModule="MadridShops" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b2b-om-JVb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YHh-1G-hBV">
+                                <rect key="frame" x="20" y="65" width="374" height="364"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egJ-W9-4gy">
+                                <rect key="frame" x="20" y="437" width="374" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="pdG-b6-pyI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZSi-HG-00x"/>
+                    <connections>
+                        <outlet property="activityDetailDescription" destination="YHh-1G-hBV" id="f59-Uq-ZV3"/>
+                        <outlet property="activityImage" destination="egJ-W9-4gy" id="hoX-Ij-rjC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVn-UL-SbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="811" y="1010"/>
+        </scene>
         <!--Shop Detail View Controller-->
         <scene sceneID="IeA-Ta-qj3">
             <objects>
@@ -163,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-as-Zon" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="94.565217391304358"/>
+            <point key="canvasLocation" x="811" y="96"/>
         </scene>
     </scenes>
 </document>
