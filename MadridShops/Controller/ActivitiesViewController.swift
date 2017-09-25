@@ -7,7 +7,7 @@ import CoreLocation
 import MapKit
 
 class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
     var context: NSManagedObjectContext!
     var activities: Activities?
     
@@ -29,7 +29,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         ExecuteOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce) {
             initializedData()
         }
-
+        
         self.activitiesCollectionView.delegate = self
         self.activitiesCollectionView.dataSource = self
         
@@ -39,7 +39,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         self.map.setRegion(region, animated: true)
         
     }
-
+    
     func initializedData() {
         let downloadActivitiesInteractor: DownloadAllActivitiesInteractor = DownloadAllActivitiesInteractorNSURLSessionImpl()
         
@@ -59,7 +59,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
             })
             
         }
-
+        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -128,7 +128,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         km0.subtitle = "El centro de España"
         
         self.map.addAnnotation(km0)
-
+        
         if let activities = fetchedResultsController.fetchedObjects {
             for activity in activities {
                 let activityLocation = CLLocation(latitude: Double(activity.latitude), longitude: Double(activity.longitude))
@@ -151,33 +151,33 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     // Pin items
-     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-     // Don't want to show a custom image if the annotation is the user's location.
-     guard !(annotation is MKUserLocation) else {
-     return nil
-     }
-     
-     // Better to make this class property
-     let annotationIdentifier = "AnnotationIdentifier"
-     
-     var annotationView: MKAnnotationView?
-     if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
-     annotationView = dequeuedAnnotationView
-     annotationView?.annotation = annotation
-     }
-     else {
-     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-     annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-     }
-     
-     if let annotationView = annotationView {
-     // Configure your annotation view here
-     annotationView.canShowCallout = true
-     annotationView.image = UIImage(named: "PinImage")
-     }
-     
-     return annotationView
-     }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // Don't want to show a custom image if the annotation is the user's location.
+        guard !(annotation is MKUserLocation) else {
+            return nil
+        }
+        
+        // Better to make this class property
+        let annotationIdentifier = "AnnotationIdentifier"
+        
+        var annotationView: MKAnnotationView?
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+            annotationView = dequeuedAnnotationView
+            annotationView?.annotation = annotation
+        }
+        else {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        
+        if let annotationView = annotationView {
+            // Configure your annotation view here
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "PinImage")
+        }
+        
+        return annotationView
+    }
     
 }
 
