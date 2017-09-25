@@ -159,7 +159,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     // Pin items
-    /*
      func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
      // Don't want to show a custom image if the annotation is the user's location.
      guard !(annotation is MKUserLocation) else {
@@ -182,11 +181,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
      if let annotationView = annotationView {
      // Configure your annotation view here
      annotationView.canShowCallout = true
-     //annotationView.image = UIImage(named: "marker")
+     annotationView.image = UIImage(named: "PinImage")
      }
      
      return annotationView
      }
-     */
     
 }
