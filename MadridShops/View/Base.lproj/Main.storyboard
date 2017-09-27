@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,27 +43,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebZ-hD-6WR">
+                                <rect key="frame" x="107" y="536" width="200" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="View Shops">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowShopsSegue" id="Q44-Ui-peD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D31-Bm-uOo">
+                                <rect key="frame" x="107" y="468" width="200" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="View Activities">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Uam-Gi-sWa" kind="show" identifier="ShowActivitiesSegue" id="AeC-Mm-aOY"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.19607843137254902" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="CBy-hE-eNq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="¡MAD!" id="a8Y-N8-KUG">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Shops" id="VN3-VL-PyH">
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowShopsSegue" id="8dY-bU-fGQ"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Activities" id="rfa-Ng-z7X">
-                                <connections>
-                                    <segue destination="Uam-Gi-sWa" kind="show" identifier="ShowActivitiesSegue" id="WtC-NA-116"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="¡MAD!" id="a8Y-N8-KUG"/>
                     <connections>
                         <outlet property="activityLoader" destination="CP4-Uu-Gv7" id="MPJ-KC-JJS"/>
                         <outlet property="customImageLoader" destination="Y5V-51-VIj" id="Tmk-jB-rZv"/>
+                        <outlet property="viewActivitiesButton" destination="D31-Bm-uOo" id="mLN-C1-aET"/>
+                        <outlet property="viewShopsButton" destination="ebZ-hD-6WR" id="DA7-51-1cB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tez-bd-x77" userLabel="First Responder" sceneMemberID="firstResponder"/>

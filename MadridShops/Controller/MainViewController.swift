@@ -6,44 +6,77 @@ import CoreData
 
 class MainViewController: UIViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var customImageLoader: UIImageView!    
     @IBOutlet weak var activityLoader: UIActivityIndicatorView!
     
+    @IBOutlet weak var viewActivitiesButton: UIButton!
+    @IBOutlet weak var viewShopsButton: UIButton!
+    
+    // MARK: - Variables
     var shops: Shops?
     var activities: Activities?
     let shopsFileToDownloadAndSaveOnce = "ShopsSavedOnce"
     let activitiesFileToDownloadAndSaveOnce = "ActivitiesSavedOnce"
+    var allFilesToDownloadAndSaveOnce: [String] = []
     
     var context: NSManagedObjectContext!
 
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshingOn()
+        allFilesToDownloadAndSaveOnce = [shopsFileToDownloadAndSaveOnce, activitiesFileToDownloadAndSaveOnce]
         
-        if CheckAllFilesSavedInteractorImpl().execute(fileNames: [self.shopsFileToDownloadAndSaveOnce, self.activitiesFileToDownloadAndSaveOnce]){
-            refreshingOff()
-        }
-        
-        executeOnce ()
+        setupUI()
+        checkData()
        
     }
     
-
+    // MARK: - Setting Up Interface
+    func setupUI(){
+        viewActivitiesButton.layer.borderColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        viewActivitiesButton.layer.borderWidth = 2
+        viewActivitiesButton.layer.cornerRadius = 5
+        viewShopsButton.layer.borderColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        viewShopsButton.layer.borderWidth = 2
+        viewShopsButton.layer.cornerRadius = 5
+    }
+    
+    func checkData() {
+        refreshingOn()
+        checkingDownloadedData()
+        executeOnce ()
+    }
     
     func refreshingOn(){
-        activityLoader.isHidden = false
-        activityLoader.startAnimating()
         customImageLoader.image = UIImage.animatedImageNamed("sprite_shopping_bags_", duration: 5)
         customImageLoader.isHidden = false
+        
+        activityLoader.isHidden = false
+        activityLoader.startAnimating()
+        
+        viewActivitiesButton.isHidden = true
+        viewShopsButton.isHidden = true
     }
     
     func refreshingOff(){
+        customImageLoader.image = UIImage.init(named: "Logo")
+        
         activityLoader.stopAnimating()
         activityLoader.isHidden = true
-        customImageLoader.image = UIImage.init(named: "Logo")
+        
+        viewActivitiesButton.isHidden = false
+        viewShopsButton.isHidden = false
     }
     
+    func checkingDownloadedData() {
+        if CheckAllFilesSavedInteractorImpl().execute(fileNames: allFilesToDownloadAndSaveOnce){
+            refreshingOff()
+        }
+    }
+    
+    // MARK: - Downloading data
     func executeOnce() {
         
         ExecuteOnceInteractorImpl().execute(item: self.shopsFileToDownloadAndSaveOnce) {
@@ -64,9 +97,7 @@ class MainViewController: UIViewController {
             let cacheInteractor = SaveAllShopsInteractorImpl()
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
                 SetExecutedOnceInteractorImpl().execute(item: self.shopsFileToDownloadAndSaveOnce)
-                if CheckAllFilesSavedInteractorImpl().execute(fileNames: [self.shopsFileToDownloadAndSaveOnce, self.activitiesFileToDownloadAndSaveOnce]){
-                    self.refreshingOff()
-                }
+                self.checkingDownloadedData()
             })
         }
     }
@@ -80,9 +111,7 @@ class MainViewController: UIViewController {
             let cacheInteractor = SaveAllActivitiesInteractorImpl()
             cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
                 SetExecutedOnceInteractorImpl().execute(item: self.activitiesFileToDownloadAndSaveOnce)
-                if CheckAllFilesSavedInteractorImpl().execute(fileNames: [self.shopsFileToDownloadAndSaveOnce, self.activitiesFileToDownloadAndSaveOnce]){
-                    self.refreshingOff()
-                }
+                self.checkingDownloadedData()
             })
         }
     }
