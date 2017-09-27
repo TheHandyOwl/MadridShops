@@ -15,7 +15,6 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
     @IBOutlet weak var activitiesCollectionView: UICollectionView!
     
     let locationManager = CLLocationManager()
-    let fileToDownloadAndSaveOnce = "ActivitiesSavedOnce"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +25,6 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         self.map.delegate = self
         
-        ExecuteOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce) {
-            initializedData()
-        }
-        
         self.activitiesCollectionView.delegate = self
         self.activitiesCollectionView.dataSource = self
         
@@ -37,34 +32,6 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         //self.map.setCenter(madridLocation.coordinate, animated: true)
         let region = MKCoordinateRegion(center: madridLocation.coordinate, span: MKCoordinateSpanMake(0.1, 0.1))
         self.map.setRegion(region, animated: true)
-        
-    }
-    
-    func initializedData() {
-        let downloadActivitiesInteractor: DownloadAllActivitiesInteractor = DownloadAllActivitiesInteractorNSURLSessionImpl()
-        
-        downloadActivitiesInteractor.execute { (activities: Activities) in
-            print("Activity name: " + activities.get(index: 0).name)
-            self.activities = activities
-            
-            let cacheInteractor = SaveAllActivitiesInteractorImpl()
-            cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
-                SetExecutedOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce)
-                
-                self._fetchedResultsController = nil
-                self.activitiesCollectionView.delegate = self
-                self.activitiesCollectionView.dataSource = self
-                self.activitiesCollectionView.reloadData()
-                
-            })
-            
-        }
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let activity : ActivityCD = self.fetchedResultsController.object(at: indexPath)
-        self.performSegue(withIdentifier: "ShowActivityDetailSegue", sender: activity)
         
     }
     

@@ -15,7 +15,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var map: MKMapView!
     
     let locationManager = CLLocationManager()
-    let fileToDownloadAndSaveOnce = "ShopsSavedOnce"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,48 +25,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         self.map.delegate = self
         
-        ExecuteOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce) {
-            initializedData()
-        }
-        
-        // Lo subimos aquí
         self.shopsCollectionView.delegate = self
         self.shopsCollectionView.dataSource = self
         
-        // Centrar el mapa
         let madridLocation = CLLocation(latitude: 40.416646, longitude: -3.703818)
         //self.map.setCenter(madridLocation.coordinate, animated: true)
         let region = MKCoordinateRegion(center: madridLocation.coordinate, span: MKCoordinateSpanMake(0.1, 0.1))
         self.map.setRegion(region, animated: true)
-        
-    }
-    
-    func initializedData() {
-        let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsInteractorNSURLSessionImpl()
-        
-        downloadShopsInteractor.execute { (shops: Shops) in
-            print("Name: " + shops.get(index: 0).name)
-            self.shops = shops
-            
-            // Guardamos el contexto
-            let cacheInteractor = SaveAllShopsInteractorImpl()
-            cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
-                SetExecutedOnceInteractorImpl().execute(item: self.fileToDownloadAndSaveOnce)
-                
-                self._fetchedResultsController = nil
-                self.shopsCollectionView.delegate = self
-                self.shopsCollectionView.dataSource = self
-                self.shopsCollectionView.reloadData()
-                
-            })
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        //let shop = self.shops?.get(index: indexPath.row)
-        let shop : ShopCD = self.fetchedResultsController.object(at: indexPath)
-        self.performSegue(withIdentifier: "ShowShopDetailSegue", sender: shop)
         
     }
     
