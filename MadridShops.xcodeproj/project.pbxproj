@@ -33,6 +33,8 @@
 		077190EA1F61D01C007DEC27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077190E81F61D01C007DEC27 /* Main.storyboard */; };
 		077190EC1F61D01C007DEC27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077190EB1F61D01C007DEC27 /* Assets.xcassets */; };
 		077190EF1F61D01C007DEC27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077190ED1F61D01C007DEC27 /* LaunchScreen.storyboard */; };
+		077879951F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077879941F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift */; };
+		077879971F7BCB16004C95DA /* CheckAllFilesSavedInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077879961F7BCB16004C95DA /* CheckAllFilesSavedInteractorImpl.swift */; };
 		07939FBE1F730E1F00A9B721 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */; };
 		0797408D1F787FE900D15DFE /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0797408C1F787FE900D15DFE /* MapPin.swift */; };
 		079A6CE01F74678500C7EA28 /* ActivitiesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079A6CDF1F74678500C7EA28 /* ActivitiesDetailViewController.swift */; };
@@ -96,6 +98,8 @@
 		077190F01F61D01C007DEC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		077190F51F61D01C007DEC27 /* MadridShopsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadridShopsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		077190FB1F61D01C007DEC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		077879941F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAllFilesSavedInteractor.swift; sourceTree = "<group>"; };
+		077879961F7BCB16004C95DA /* CheckAllFilesSavedInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAllFilesSavedInteractorImpl.swift; sourceTree = "<group>"; };
 		07939FBD1F730E1F00A9B721 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		0797408C1F787FE900D15DFE /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		079A6CDF1F74678500C7EA28 /* ActivitiesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDetailViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				076267AB1F6B351D00D31FF1 /* CacheInteractors */,
+				077879941F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift */,
+				077879961F7BCB16004C95DA /* CheckAllFilesSavedInteractorImpl.swift */,
 				07E1F3471F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift */,
 				07E1F3491F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift */,
 				07395C551F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift */,
@@ -537,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0797408D1F787FE900D15DFE /* MapPin.swift in Sources */,
+				077879951F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift in Sources */,
 				074A37251F61D2DA00091C1D /* Shop.swift in Sources */,
 				079A6CE21F74728A00C7EA28 /* SaveAllActivitiesInteractor.swift in Sources */,
 				072E5DE71F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift in Sources */,
@@ -551,6 +558,7 @@
 				079A6CE41F7472A100C7EA28 /* SaveAllActivitiesInteractorImpl.swift in Sources */,
 				076267AF1F6B364A00D31FF1 /* SaveAllShopsInteractorImpl.swift in Sources */,
 				074A37271F61D4F900091C1D /* Shops.swift in Sources */,
+				077879971F7BCB16004C95DA /* CheckAllFilesSavedInteractorImpl.swift in Sources */,
 				072E5DE31F7053930057FAC5 /* MapShops.swift in Sources */,
 				07E1F34A1F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift in Sources */,
 				072ACF3D1F69A354007446B3 /* ShopDetailViewController.swift in Sources */,
