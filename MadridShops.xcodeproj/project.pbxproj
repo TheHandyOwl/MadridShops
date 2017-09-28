@@ -10,6 +10,8 @@
 		07035BA91F671E0A001B53D4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07035BA81F671E0A001B53D4 /* MainViewController.swift */; };
 		07035BAB1F673C9E001B53D4 /* DownloadAllShopsInteractorNSOpImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07035BAA1F673C9E001B53D4 /* DownloadAllShopsInteractorNSOpImpl.swift */; };
 		071A29BB1F67127D00B89C66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 071A29BA1F67127D00B89C66 /* Podfile */; };
+		072445671F7D9B2D006600AC /* ActivityFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072445661F7D9B2D006600AC /* ActivityFetchedResultsController.swift */; };
+		072445691F7D9C80006600AC /* ShopFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072445681F7D9C80006600AC /* ShopFetchedResultsController.swift */; };
 		072ACF3D1F69A354007446B3 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072ACF3C1F69A354007446B3 /* ShopDetailViewController.swift */; };
 		072ACF411F69A49C007446B3 /* DownloadAllShopsInteractorNSURLSessionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072ACF401F69A49C007446B3 /* DownloadAllShopsInteractorNSURLSessionImpl.swift */; };
 		072ACF441F69AABA007446B3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072ACF3F1F69A476007446B3 /* JsonParser.swift */; };
@@ -79,6 +81,8 @@
 		07035BA81F671E0A001B53D4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		07035BAA1F673C9E001B53D4 /* DownloadAllShopsInteractorNSOpImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsInteractorNSOpImpl.swift; sourceTree = "<group>"; };
 		071A29BA1F67127D00B89C66 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		072445661F7D9B2D006600AC /* ActivityFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFetchedResultsController.swift; sourceTree = "<group>"; };
+		072445681F7D9C80006600AC /* ShopFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopFetchedResultsController.swift; sourceTree = "<group>"; };
 		072ACF3C1F69A354007446B3 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		072ACF3F1F69A476007446B3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		072ACF401F69A49C007446B3 /* DownloadAllShopsInteractorNSURLSessionImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsInteractorNSURLSessionImpl.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				076267A91F6B285200D31FF1 /* CoreDataStack.swift */,
+				072445661F7D9B2D006600AC /* ActivityFetchedResultsController.swift */,
+				072445681F7D9C80006600AC /* ShopFetchedResultsController.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -638,6 +644,7 @@
 				073510ED1F7D765B00024BC0 /* SetGenericOnceInteractor.swift in Sources */,
 				073510EE1F7D765B00024BC0 /* SetGenericOnceInteractorImpl.swift in Sources */,
 				0797408D1F787FE900D15DFE /* MapPin.swift in Sources */,
+				072445671F7D9B2D006600AC /* ActivityFetchedResultsController.swift in Sources */,
 				077879951F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift in Sources */,
 				074A37251F61D2DA00091C1D /* Shop.swift in Sources */,
 				079A6CE21F74728A00C7EA28 /* SaveAllActivitiesInteractor.swift in Sources */,
@@ -662,6 +669,7 @@
 				07E1F3461F71CECC002FEB96 /* Activities.swift in Sources */,
 				07035BAB1F673C9E001B53D4 /* DownloadAllShopsInteractorNSOpImpl.swift in Sources */,
 				07B06D0E1F61F6E3001A3120 /* ViewController+CollectionViewController.swift in Sources */,
+				072445691F7D9C80006600AC /* ShopFetchedResultsController.swift in Sources */,
 				072E5DEB1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift in Sources */,
 				072ACF411F69A49C007446B3 /* DownloadAllShopsInteractorNSURLSessionImpl.swift in Sources */,
 				079A6CE01F74678500C7EA28 /* ActivitiesDetailViewController.swift in Sources */,

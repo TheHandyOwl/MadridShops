@@ -45,33 +45,6 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         }
     }
     
-    // MARK: - Fetched results controller
-    
-    var _fetchedResultsController: NSFetchedResultsController<ActivityCD>? = nil
-    
-    var fetchedResultsController: NSFetchedResultsController<ActivityCD> {
-        
-        if _fetchedResultsController != nil {
-            return _fetchedResultsController!
-        }
-        
-        let fetchRequest: NSFetchRequest<ActivityCD> = ActivityCD.fetchRequest()
-        
-        fetchRequest.fetchBatchSize = 20
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
-        _fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ActivitiesCacheFile")
-        
-        do {
-            try _fetchedResultsController!.performFetch()
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-        
-        return _fetchedResultsController!
-    }
-    
     
     // MARK: - CLLocationManager Delegate
     
@@ -96,7 +69,7 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         self.map.addAnnotation(km0)
         
-        if let activities = fetchedResultsController.fetchedObjects {
+        if let activities = activityFetchedResultsController(context: context).fetchedObjects {
             for activity in activities {
                 let activityLocation = CLLocation(latitude: Double(activity.latitude), longitude: Double(activity.longitude))
                 print("La latitud es: \((activity.latitude)) y longitud \((activity.longitude))")

@@ -45,38 +45,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
-    // MARK: - Fetched results controller
-    
-    //var _fetchedResultsController: NSFetchedResultsController<Event>? = nil
-    var _fetchedResultsController: NSFetchedResultsController<ShopCD>? = nil
-    
-    var fetchedResultsController: NSFetchedResultsController<ShopCD> {
-        
-        if _fetchedResultsController != nil {
-            return _fetchedResultsController!
-        }
-        
-        //let fetchRequest: NSFetchRequest<Event> = Event.fetchRequest()
-        let fetchRequest: NSFetchRequest<ShopCD> = ShopCD.fetchRequest()
-        
-        // Set the batch size to a suitable number.
-        fetchRequest.fetchBatchSize = 20
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
-        _fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
-        //aFetchedResultsController.delegate = self
-        //_fetchedResultsController = aFetchedResultsController
-        
-        do {
-            try _fetchedResultsController!.performFetch()
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-        
-        return _fetchedResultsController!
-    }
-    
     
     // MARK: - CLLocationManager Delegate
     
@@ -101,7 +69,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         self.map.addAnnotation(km0)
         
-        if let shops = fetchedResultsController.fetchedObjects {
+        if let shops = shopFetchedResultsController(context: context).fetchedObjects {
             for shop in shops {
                 let shopLocation = CLLocation(latitude: Double(shop.latitude), longitude: Double(shop.longitude))
                 print("La latitud es: \((shop.latitude)) y longitud \((shop.longitude))")
