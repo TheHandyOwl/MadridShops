@@ -65,6 +65,13 @@
                                     <segue destination="Uam-Gi-sWa" kind="show" identifier="ShowActivitiesSegue" id="AeC-Mm-aOY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No connection available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8H-Oj-okw">
+                                <rect key="frame" x="107" y="604" width="200" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803921568626" green="0.19607843137254902" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="CBy-hE-eNq"/>
@@ -72,6 +79,7 @@
                     <navigationItem key="navigationItem" title="¡MAD!" id="a8Y-N8-KUG"/>
                     <connections>
                         <outlet property="activityLoader" destination="CP4-Uu-Gv7" id="MPJ-KC-JJS"/>
+                        <outlet property="connectionAlertLabel" destination="r8H-Oj-okw" id="DPC-XK-ukk"/>
                         <outlet property="customImageLoader" destination="Y5V-51-VIj" id="Tmk-jB-rZv"/>
                         <outlet property="viewActivitiesButton" destination="D31-Bm-uOo" id="mLN-C1-aET"/>
                         <outlet property="viewShopsButton" destination="ebZ-hD-6WR" id="DA7-51-1cB"/>
