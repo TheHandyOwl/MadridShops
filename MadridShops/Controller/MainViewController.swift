@@ -110,11 +110,15 @@ class MainViewController: UIViewController {
     // MARK: - Downloading data
     func executeOnce() {
         
+        print("shop")
         ExecuteOnceInteractorImpl().execute(item: self.shopsFileToDownloadAndSaveOnce) {
             initializedShopsData()
+            print("shopsclosure")
         }
+        print("activities")
         ExecuteOnceInteractorImpl().execute(item: self.activitiesFileToDownloadAndSaveOnce) {
             initializedActivitiesData()
+            print("activitiessclosure")
         }
         
     }
