@@ -18,9 +18,6 @@ class MainViewController: UIViewController {
     // MARK: - Variables
     var shops: Shops?
     var activities: Activities?
-    let shopsFileToDownloadAndSaveOnce = "ShopsSavedOnce"
-    let activitiesFileToDownloadAndSaveOnce = "ActivitiesSavedOnce"
-    var allFilesToDownloadAndSaveOnce: [String] = []
     
     var context: NSManagedObjectContext!
     
@@ -33,10 +30,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allFilesToDownloadAndSaveOnce = [shopsFileToDownloadAndSaveOnce, activitiesFileToDownloadAndSaveOnce]
-        
         setupUI()
-        checkData()
+        checkDataThenNetwork()
        
     }
     
@@ -58,10 +53,17 @@ class MainViewController: UIViewController {
         connectionAlertLabel.isHidden = true
     }
     
-    func checkData() {
+    func checkDataThenNetwork() {
         loadingActivityOn()
-        checkingDownloadedData()
-        executeOnce ()
+        
+        if CheckGenericOnceInteractorImpl().execute(item: "allFilesSaved"){
+            loadingActivityOff()
+        } else {
+            if !CheckGenericOnceInteractorImpl().execute(item: "startNetworkChecker"){
+                SetGenericOnceInteractorImpl().execute(item: "startNetworkChecker")
+                startNetworkChecker(at: 0)
+            }
+        }
     }
     
     func loadingActivityOn() {
@@ -87,38 +89,20 @@ class MainViewController: UIViewController {
         
         buttonsOn()
         
-        stopNotifier()
+        self.stopNotifier()
     }
     
     func buttonsOn() {
         viewActivitiesButton.isHidden = false
         viewShopsButton.isHidden = false
     }
-    
-    func checkingDownloadedData() {
-        if CheckAllFilesSavedInteractorImpl().execute(fileNames: allFilesToDownloadAndSaveOnce){
-            loadingActivityOff()
-        } else {
-            if !CheckGenericOnceInteractorImpl().execute(item: "startNetworkChecker"){
-                SetGenericOnceInteractorImpl().execute(item: "startNetworkChecker")
-                startNetworkChecker(at: 0)
-            }
-        }
-    }
-    
+   
     
     // MARK: - Downloading data
-    func executeOnce() {
+    func downloadData() {
         
-        print("shop")
-        ExecuteOnceInteractorImpl().execute(item: self.shopsFileToDownloadAndSaveOnce) {
+        ExecuteOnceInteractorImpl().execute(item: "allFilesSaved") {
             initializedShopsData()
-            print("shopsclosure")
-        }
-        print("activities")
-        ExecuteOnceInteractorImpl().execute(item: self.activitiesFileToDownloadAndSaveOnce) {
-            initializedActivitiesData()
-            print("activitiessclosure")
         }
         
     }
@@ -131,8 +115,7 @@ class MainViewController: UIViewController {
             
             let cacheInteractor = SaveAllShopsInteractorImpl()
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
-                SetExecutedOnceInteractorImpl().execute(item: self.shopsFileToDownloadAndSaveOnce)
-                self.checkingDownloadedData()
+                self.initializedActivitiesData()
             })
         }
     }
@@ -145,8 +128,9 @@ class MainViewController: UIViewController {
             
             let cacheInteractor = SaveAllActivitiesInteractorImpl()
             cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
-                SetExecutedOnceInteractorImpl().execute(item: self.activitiesFileToDownloadAndSaveOnce)
-                self.checkingDownloadedData()
+                SaveAndExecuteOnceInteractorImpl().execute(item: "allFilesSaved") {
+                    self.loadingActivityOff()
+                }
             })
         }
     }
@@ -199,7 +183,7 @@ class MainViewController: UIViewController {
     
     func updateLabelColourWhenReachable(_ reachability: Reachability) {
         connectionAlertLabel.isHidden = true
-        checkData()
+        downloadData()
     }
     
     func updateLabelColourWhenNotReachable(_ reachability: Reachability) {
