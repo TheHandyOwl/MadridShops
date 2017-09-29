@@ -4,12 +4,14 @@
 import UIKit
 import CoreData
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - IBOutlets
     @IBOutlet weak var customImageLoader: UIImageView!    
     @IBOutlet weak var activityLoader: UIActivityIndicatorView!
-    
+   
+    @IBOutlet weak var languagePicker: UIPickerView!
+        
     @IBOutlet weak var viewActivitiesButton: UIButton!
     @IBOutlet weak var viewShopsButton: UIButton!
     @IBOutlet weak var connectionAlertLabel: UILabel!
@@ -25,10 +27,15 @@ class MainViewController: UIViewController {
     let hostNames = ["madrid-shops.com"]
     var hostIndex = 0
     
+    var myLanguage : String = "en"
+    var languageList : [String] = ["en", "es", "jp"]
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SetLanguageInteractorImpl().execute(language: myLanguage)
         
         setupUI()
         checkDataThenNetwork()
@@ -79,6 +86,7 @@ class MainViewController: UIViewController {
     func buttonsOff(){
         viewActivitiesButton.isHidden = true
         viewShopsButton.isHidden = true
+        languagePicker.isHidden = true
     }
     
     func loadingActivityOff() {
@@ -95,6 +103,7 @@ class MainViewController: UIViewController {
     func buttonsOn() {
         viewActivitiesButton.isHidden = false
         viewShopsButton.isHidden = false
+        languagePicker.isHidden = false
     }
    
     
@@ -233,6 +242,23 @@ class MainViewController: UIViewController {
             vc.context = self.context
         }
         
+    }
+    
+    
+    // MARK: - Language Picker
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return languageList.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return languageList[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.myLanguage = self.languageList[row]
+        SetLanguageInteractorImpl().execute(language: self.myLanguage)
     }
     
     
