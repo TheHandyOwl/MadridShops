@@ -12,5 +12,6 @@ class RemoveGenericOnceInteractorImpl: RemoveGenericOnceInteractor {
     func execute(item: String) {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: item)
+        defaults.synchronize()
     }
 }
