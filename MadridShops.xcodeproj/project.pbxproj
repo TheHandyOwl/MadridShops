@@ -63,6 +63,10 @@
 		07E1F3461F71CECC002FEB96 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1F3451F71CECC002FEB96 /* Activities.swift */; };
 		07E1F3481F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1F3471F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift */; };
 		07E1F34A1F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1F3491F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift */; };
+		07EEC4131F7E936E00B24F1C /* GetLanguageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC4121F7E936E00B24F1C /* GetLanguageInteractor.swift */; };
+		07EEC4151F7E937900B24F1C /* GetLanguageInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC4141F7E937900B24F1C /* GetLanguageInteractorImpl.swift */; };
+		07EEC4171F7E938800B24F1C /* SetLanguageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC4161F7E938800B24F1C /* SetLanguageInteractor.swift */; };
+		07EEC4191F7E939200B24F1C /* SetLanguageInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEC4181F7E939200B24F1C /* SetLanguageInteractorImpl.swift */; };
 		45F112A2937196E92D6B7302 /* Pods_MadridShops.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD37DB1028C194001593C3DD /* Pods_MadridShops.framework */; };
 		5C6D5B081E4A35DEBA201E3D /* Pods_MadridShopsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C823A92975CE24E335055FC2 /* Pods_MadridShopsTests.framework */; };
 /* End PBXBuildFile section */
@@ -138,6 +142,10 @@
 		07E1F3451F71CECC002FEB96 /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		07E1F3471F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllActivitiesInteractor.swift; sourceTree = "<group>"; };
 		07E1F3491F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllActivitiesFakeInteractorImplementation.swift; sourceTree = "<group>"; };
+		07EEC4121F7E936E00B24F1C /* GetLanguageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLanguageInteractor.swift; sourceTree = "<group>"; };
+		07EEC4141F7E937900B24F1C /* GetLanguageInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLanguageInteractorImpl.swift; sourceTree = "<group>"; };
+		07EEC4161F7E938800B24F1C /* SetLanguageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLanguageInteractor.swift; sourceTree = "<group>"; };
+		07EEC4181F7E939200B24F1C /* SetLanguageInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLanguageInteractorImpl.swift; sourceTree = "<group>"; };
 		5B2BB0B0256814EA7FD34127 /* Pods-MadridShops.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MadridShops.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MadridShops/Pods-MadridShops.debug.xcconfig"; sourceTree = "<group>"; };
 		9337A73F473D2284B0D4608D /* Pods-MadridShopsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MadridShopsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MadridShopsTests/Pods-MadridShopsTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD37DB1028C194001593C3DD /* Pods_MadridShops.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MadridShops.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +229,7 @@
 		0733EB291F7C208F00009CA4 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				07EEC4111F7E934D00B24F1C /* Language */,
 				073510E11F7D702E00024BC0 /* GenericOnce */,
 				073510E21F7D704F00024BC0 /* SavedOnce */,
 				077879941F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift */,
@@ -404,6 +413,17 @@
 				C823A92975CE24E335055FC2 /* Pods_MadridShopsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07EEC4111F7E934D00B24F1C /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				07EEC4121F7E936E00B24F1C /* GetLanguageInteractor.swift */,
+				07EEC4141F7E937900B24F1C /* GetLanguageInteractorImpl.swift */,
+				07EEC4161F7E938800B24F1C /* SetLanguageInteractor.swift */,
+				07EEC4181F7E939200B24F1C /* SetLanguageInteractorImpl.swift */,
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 		2D898D3D1AEA6A9CBD12B44D /* Pods */ = {
@@ -657,6 +677,7 @@
 				077190E71F61D01C007DEC27 /* ViewController.swift in Sources */,
 				072E5DE51F7061550057FAC5 /* ExecuteOnceInteractor.swift in Sources */,
 				077190E51F61D01C007DEC27 /* AppDelegate.swift in Sources */,
+				07EEC4171F7E938800B24F1C /* SetLanguageInteractor.swift in Sources */,
 				079A6CE41F7472A100C7EA28 /* SaveAllActivitiesInteractorImpl.swift in Sources */,
 				076267AF1F6B364A00D31FF1 /* SaveAllShopsInteractorImpl.swift in Sources */,
 				074A37271F61D4F900091C1D /* Shops.swift in Sources */,
@@ -665,6 +686,7 @@
 				07E1F34A1F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift in Sources */,
 				072ACF3D1F69A354007446B3 /* ShopDetailViewController.swift in Sources */,
 				07B06D091F61EA19001A3120 /* DownloadAllShopsInteractorFakeImplementation.swift in Sources */,
+				07EEC4131F7E936E00B24F1C /* GetLanguageInteractor.swift in Sources */,
 				079A6CE61F74754A00C7EA28 /* MapActivities.swift in Sources */,
 				07E1F3461F71CECC002FEB96 /* Activities.swift in Sources */,
 				07035BAB1F673C9E001B53D4 /* DownloadAllShopsInteractorNSOpImpl.swift in Sources */,
@@ -674,9 +696,11 @@
 				072ACF411F69A49C007446B3 /* DownloadAllShopsInteractorNSURLSessionImpl.swift in Sources */,
 				079A6CE01F74678500C7EA28 /* ActivitiesDetailViewController.swift in Sources */,
 				07E1F3481F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift in Sources */,
+				07EEC4191F7E939200B24F1C /* SetLanguageInteractorImpl.swift in Sources */,
 				07939FBE1F730E1F00A9B721 /* ActivitiesViewController.swift in Sources */,
 				07B06D071F61E9D9001A3120 /* Typealias.swift in Sources */,
 				076267AA1F6B285200D31FF1 /* CoreDataStack.swift in Sources */,
+				07EEC4151F7E937900B24F1C /* GetLanguageInteractorImpl.swift in Sources */,
 				07B06D051F61E15A001A3120 /* DownloadAllShopsInteractor.swift in Sources */,
 				072E5DE91F7068D00057FAC5 /* SaveAndExecuteOnceInteractorImpl.swift in Sources */,
 				07035BA91F671E0A001B53D4 /* MainViewController.swift in Sources */,
