@@ -71,4 +71,7 @@ xcuserdata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
+#XCode 4 - Breakpoints & other things
+xcuserdata/*
+
 # End of https://www.gitignore.io/api/git,macos,xcode,cocoapods

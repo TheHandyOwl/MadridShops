@@ -18,8 +18,8 @@
 		072ACF451F69AB3A007446B3 /* String+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072ACF431F69A728007446B3 /* String+Image.swift */; };
 		072E5DE31F7053930057FAC5 /* MapShops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE21F7053930057FAC5 /* MapShops.swift */; };
 		072E5DE51F7061550057FAC5 /* ExecuteOnceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE41F7061550057FAC5 /* ExecuteOnceInteractor.swift */; };
-		072E5DE71F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE61F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift */; };
-		072E5DE91F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE81F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift */; };
+		072E5DE71F7061ED0057FAC5 /* SaveAndExecuteOnceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE61F7061ED0057FAC5 /* SaveAndExecuteOnceInteractor.swift */; };
+		072E5DE91F7068D00057FAC5 /* SaveAndExecuteOnceInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DE81F7068D00057FAC5 /* SaveAndExecuteOnceInteractorImpl.swift */; };
 		072E5DEB1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E5DEA1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift */; };
 		073510DB1F7D632300024BC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073510DA1F7D632200024BC0 /* CoreLocation.framework */; };
 		073510DF1F7D6F9500024BC0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073510DE1F7D6F9500024BC0 /* Reachability.swift */; };
@@ -89,8 +89,8 @@
 		072ACF431F69A728007446B3 /* String+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Image.swift"; sourceTree = "<group>"; };
 		072E5DE21F7053930057FAC5 /* MapShops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapShops.swift; sourceTree = "<group>"; };
 		072E5DE41F7061550057FAC5 /* ExecuteOnceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractor.swift; sourceTree = "<group>"; };
-		072E5DE61F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExecutedOnceInteractor.swift; sourceTree = "<group>"; };
-		072E5DE81F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExecutedOnceInteractorImpl.swift; sourceTree = "<group>"; };
+		072E5DE61F7061ED0057FAC5 /* SaveAndExecuteOnceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndExecuteOnceInteractor.swift; sourceTree = "<group>"; };
+		072E5DE81F7068D00057FAC5 /* SaveAndExecuteOnceInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndExecuteOnceInteractorImpl.swift; sourceTree = "<group>"; };
 		072E5DEA1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractorImpl.swift; sourceTree = "<group>"; };
 		073510DA1F7D632200024BC0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		073510DE1F7D6F9500024BC0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -274,8 +274,8 @@
 			children = (
 				072E5DE41F7061550057FAC5 /* ExecuteOnceInteractor.swift */,
 				072E5DEA1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift */,
-				072E5DE61F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift */,
-				072E5DE81F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift */,
+				072E5DE61F7061ED0057FAC5 /* SaveAndExecuteOnceInteractor.swift */,
+				072E5DE81F7068D00057FAC5 /* SaveAndExecuteOnceInteractorImpl.swift */,
 			);
 			path = SavedOnce;
 			sourceTree = "<group>";
@@ -648,7 +648,7 @@
 				077879951F7BCB08004C95DA /* CheckAllFilesSavedInteractor.swift in Sources */,
 				074A37251F61D2DA00091C1D /* Shop.swift in Sources */,
 				079A6CE21F74728A00C7EA28 /* SaveAllActivitiesInteractor.swift in Sources */,
-				072E5DE71F7061ED0057FAC5 /* SetExecutedOnceInteractor.swift in Sources */,
+				072E5DE71F7061ED0057FAC5 /* SaveAndExecuteOnceInteractor.swift in Sources */,
 				07B06D101F61FA3D001A3120 /* ShopCell.swift in Sources */,
 				079A6CE81F7480AB00C7EA28 /* ActivitiesVC+CollectionVC.swift in Sources */,
 				072ACF441F69AABA007446B3 /* JsonParser.swift in Sources */,
@@ -678,7 +678,7 @@
 				07B06D071F61E9D9001A3120 /* Typealias.swift in Sources */,
 				076267AA1F6B285200D31FF1 /* CoreDataStack.swift in Sources */,
 				07B06D051F61E15A001A3120 /* DownloadAllShopsInteractor.swift in Sources */,
-				072E5DE91F7068D00057FAC5 /* SetExecutedOnceInteractorImpl.swift in Sources */,
+				072E5DE91F7068D00057FAC5 /* SaveAndExecuteOnceInteractorImpl.swift in Sources */,
 				07035BA91F671E0A001B53D4 /* MainViewController.swift in Sources */,
 				079A6CEA1F74822000C7EA28 /* ActivityCell.swift in Sources */,
 				076267A81F6B271D00D31FF1 /* MadridShops.xcdatamodeld in Sources */,
