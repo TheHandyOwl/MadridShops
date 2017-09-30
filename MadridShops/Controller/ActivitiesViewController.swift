@@ -57,24 +57,25 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
     // MARK: - MKMapViewDelegate Delegate
     // Tells the delegate that the map view is about to start rendering some of its tiles
     func mapViewWillStartRenderingMap(_ mapView: MKMapView) {
-        print("Start rendering")
+        //print("Start rendering")
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
-        print("Finish rendering")
+        //print("Finish rendering")
         
+        /*
         let km0 = MapPin(coordinate: CLLocationCoordinate2D(latitude: 40.416676, longitude: -3.703878))
         km0.title = "Punto kilométrico 0"
         km0.subtitle = "El centro de España"
         
         self.map.addAnnotation(km0)
+         */
         
         if let activities = activityFetchedResultsController(context: context).fetchedObjects {
             for activity in activities {
                 let activityLocation = CLLocation(latitude: Double(activity.latitude), longitude: Double(activity.longitude))
-                print("La latitud es: \((activity.latitude)) y longitud \((activity.longitude))")
+                //print("Latitude: \((activity.latitude)) - Longitude \((activity.longitude))")
                 let activityPin = MapPin(coordinate: activityLocation.coordinate, title: activity.name!, subtitle: activity.address!)
-                print("activityPin: \(activityPin)")
                 self.map.addAnnotation(activityPin)
             }
         }
@@ -83,11 +84,11 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     // Tells the delegate that the specified map view is about to retrieve some map data
     func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-        print("Start loading")
+        //print("Start loading")
     }
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        print("Finish loading")
+        //print("Finish loading")
     }
     
     // Pin items

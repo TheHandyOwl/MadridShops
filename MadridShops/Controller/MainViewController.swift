@@ -28,14 +28,15 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var hostIndex = 0
     
     var myLanguage : String = "en"
-    var languageList : [String] = ["en", "es", "jp"]
-    
+    var availableLanguages : [String] = ["cl", "cn", "en", "es", "jp", "mx"]
+
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         SetLanguageInteractorImpl().execute(language: myLanguage)
+        SetAllAvailableLanguagesInteractorImpl().execute(languageArray: availableLanguages)
         
         setupUI()
         checkDataThenNetwork()
@@ -58,6 +59,8 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         connectionAlertLabel.layer.cornerRadius = 5
         connectionAlertLabel.layer.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         connectionAlertLabel.isHidden = true
+        
+        languagePicker.selectRow(availableLanguages.index(of: myLanguage)! , inComponent: 0, animated: true)
     }
     
     func checkDataThenNetwork() {
@@ -251,13 +254,13 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return languageList.count
+        return availableLanguages.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return languageList[row]
+        return availableLanguages[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.myLanguage = self.languageList[row]
+        self.myLanguage = self.availableLanguages[row]
         SetLanguageInteractorImpl().execute(language: self.myLanguage)
     }
     

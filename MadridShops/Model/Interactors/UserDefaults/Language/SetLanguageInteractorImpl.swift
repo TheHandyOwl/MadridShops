@@ -13,6 +13,5 @@ class SetLanguageInteractorImpl: SetLanguageInteractor {
         let defaults = UserDefaults.standard
         defaults.set(language.lowercased(), forKey: "language")
         defaults.synchronize()
-        print("Get: \(language)")
     }
 }

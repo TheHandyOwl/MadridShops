@@ -253,7 +253,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YHh-1G-hBV">
-                                <rect key="frame" x="20" y="65" width="374" height="364"/>
+                                <rect key="frame" x="20" y="74" width="374" height="262"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -261,9 +261,17 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egJ-W9-4gy">
-                                <rect key="frame" x="20" y="437" width="374" height="279"/>
+                                <rect key="frame" x="20" y="455" width="374" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bAh-dH-gyp">
+                                <rect key="frame" x="20" y="344" width="374" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="pdG-b6-pyI"/>
@@ -272,6 +280,7 @@
                     <connections>
                         <outlet property="activityDetailDescription" destination="YHh-1G-hBV" id="f59-Uq-ZV3"/>
                         <outlet property="activityImage" destination="egJ-W9-4gy" id="hoX-Ij-rjC"/>
+                        <outlet property="activityOpeningHours" destination="bAh-dH-gyp" id="zhM-2x-c1Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVn-UL-SbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -287,11 +296,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUU-tW-rNK">
-                                <rect key="frame" x="37" y="455" width="336" height="248"/>
+                                <rect key="frame" x="20" y="455" width="374" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dsI-mf-ZvS">
-                                <rect key="frame" x="37" y="74" width="336" height="350"/>
+                                <rect key="frame" x="20" y="74" width="374" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem fistrum sexuarl ese hombree a gramenawer pupita qué dise usteer está la cosa muy malar a wan ese que llega ese pedazo de diodeno. Caballo blanco caballo negroorl por la gloria de mi madre diodeno se calle ustée qué dise usteer de la pradera va usté muy cargadoo. Diodenoo te va a hasé pupitaa ese pedazo de apetecan está la cosa muy malar condemor caballo blanco caballo negroorl no puedor te va a hasé pupitaa condemor pecador. La caidita ese que llega jarl la caidita está la cosa muy malar jarl jarl. De la pradera a gramenawer de la pradera al ataquerl. Te va a hasé pupitaa va usté muy cargadoo la caidita apetecan sexuarl. Apetecan ese que llega benemeritaar diodeno jarl de la pradera. Diodenoo no te digo trigo por no llamarte Rodrigor de la pradera quietooor a wan.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-kr-72k">
+                                <rect key="frame" x="20" y="344" width="374" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem fistrum sexuarl ese hombree a gramenawer pupita qué dise usteer está la cosa muy malar a wan ese que llega ese pedazo de diodeno. Caballo blanco caballo negroorl por la gloria de mi madre diodeno se calle ustée qué dise usteer de la pradera va usté muy cargadoo. Diodenoo te va a hasé pupitaa ese pedazo de apetecan está la cosa muy malar condemor caballo blanco caballo negroorl no puedor te va a hasé pupitaa condemor pecador. La caidita ese que llega jarl la caidita está la cosa muy malar jarl jarl. De la pradera a gramenawer de la pradera al ataquerl. Te va a hasé pupitaa va usté muy cargadoo la caidita apetecan sexuarl. Apetecan ese que llega benemeritaar diodeno jarl de la pradera. Diodenoo no te digo trigo por no llamarte Rodrigor de la pradera quietooor a wan.</string>
@@ -306,11 +323,12 @@
                     <connections>
                         <outlet property="shopDetailDescription" destination="dsI-mf-ZvS" id="NFw-CQ-QTp"/>
                         <outlet property="shopImage" destination="yUU-tW-rNK" id="zP5-DT-lm7"/>
+                        <outlet property="shopOpeningHours" destination="mKt-kr-72k" id="JKg-ju-80L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi8-as-Zon" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="811" y="96"/>
+            <point key="canvasLocation" x="810.14492753623199" y="95.380434782608702"/>
         </scene>
     </scenes>
     <resources>
