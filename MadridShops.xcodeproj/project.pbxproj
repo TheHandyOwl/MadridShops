@@ -29,6 +29,10 @@
 		073510EC1F7D765B00024BC0 /* RemoveGenericOnceInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073510E41F7D70A200024BC0 /* RemoveGenericOnceInteractorImpl.swift */; };
 		073510ED1F7D765B00024BC0 /* SetGenericOnceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073510E81F7D70A300024BC0 /* SetGenericOnceInteractor.swift */; };
 		073510EE1F7D765B00024BC0 /* SetGenericOnceInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073510E31F7D70A200024BC0 /* SetGenericOnceInteractorImpl.swift */; };
+		0735E8371F7FA906007569B5 /* GetAllAvailableLanguagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E8361F7FA906007569B5 /* GetAllAvailableLanguagesInteractor.swift */; };
+		0735E8391F7FA90E007569B5 /* GetAllAvailableLanguagesInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E8381F7FA90E007569B5 /* GetAllAvailableLanguagesInteractorImpl.swift */; };
+		0735E83B1F7FA916007569B5 /* SetAllAvailableLanguagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E83A1F7FA916007569B5 /* SetAllAvailableLanguagesInteractor.swift */; };
+		0735E83D1F7FA920007569B5 /* SetAllAvailableLanguagesInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E83C1F7FA920007569B5 /* SetAllAvailableLanguagesInteractorImpl.swift */; };
 		07395C561F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07395C551F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift */; };
 		074A37251F61D2DA00091C1D /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A37241F61D2DA00091C1D /* Shop.swift */; };
 		074A37271F61D4F900091C1D /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A37261F61D4F900091C1D /* Shops.swift */; };
@@ -104,6 +108,10 @@
 		073510E61F7D70A200024BC0 /* CheckGenericOnceInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckGenericOnceInteractorImpl.swift; sourceTree = "<group>"; };
 		073510E71F7D70A200024BC0 /* CheckGenericOnceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckGenericOnceInteractor.swift; sourceTree = "<group>"; };
 		073510E81F7D70A300024BC0 /* SetGenericOnceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGenericOnceInteractor.swift; sourceTree = "<group>"; };
+		0735E8361F7FA906007569B5 /* GetAllAvailableLanguagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllAvailableLanguagesInteractor.swift; sourceTree = "<group>"; };
+		0735E8381F7FA90E007569B5 /* GetAllAvailableLanguagesInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllAvailableLanguagesInteractorImpl.swift; sourceTree = "<group>"; };
+		0735E83A1F7FA916007569B5 /* SetAllAvailableLanguagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAllAvailableLanguagesInteractor.swift; sourceTree = "<group>"; };
+		0735E83C1F7FA920007569B5 /* SetAllAvailableLanguagesInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAllAvailableLanguagesInteractorImpl.swift; sourceTree = "<group>"; };
 		07395C551F75BD71007026F5 /* DownloadAllActivitiesInteractorNSURLSessionImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllActivitiesInteractorNSURLSessionImpl.swift; sourceTree = "<group>"; };
 		074A37241F61D2DA00091C1D /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		074A37261F61D4F900091C1D /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
@@ -199,8 +207,8 @@
 		072E5DE11F70534D0057FAC5 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
-				072E5DE21F7053930057FAC5 /* MapShops.swift */,
 				079A6CE51F74754A00C7EA28 /* MapActivities.swift */,
+				072E5DE21F7053930057FAC5 /* MapShops.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -418,6 +426,10 @@
 		07EEC4111F7E934D00B24F1C /* Language */ = {
 			isa = PBXGroup;
 			children = (
+				0735E8361F7FA906007569B5 /* GetAllAvailableLanguagesInteractor.swift */,
+				0735E8381F7FA90E007569B5 /* GetAllAvailableLanguagesInteractorImpl.swift */,
+				0735E83A1F7FA916007569B5 /* SetAllAvailableLanguagesInteractor.swift */,
+				0735E83C1F7FA920007569B5 /* SetAllAvailableLanguagesInteractorImpl.swift */,
 				07EEC4121F7E936E00B24F1C /* GetLanguageInteractor.swift */,
 				07EEC4141F7E937900B24F1C /* GetLanguageInteractorImpl.swift */,
 				07EEC4161F7E938800B24F1C /* SetLanguageInteractor.swift */,
@@ -674,6 +686,7 @@
 				072ACF441F69AABA007446B3 /* JsonParser.swift in Sources */,
 				076267AD1F6B357D00D31FF1 /* SaveAllShopsInteractor.swift in Sources */,
 				07E1F3441F71CEBA002FEB96 /* Activity.swift in Sources */,
+				0735E83D1F7FA920007569B5 /* SetAllAvailableLanguagesInteractorImpl.swift in Sources */,
 				077190E71F61D01C007DEC27 /* ViewController.swift in Sources */,
 				072E5DE51F7061550057FAC5 /* ExecuteOnceInteractor.swift in Sources */,
 				077190E51F61D01C007DEC27 /* AppDelegate.swift in Sources */,
@@ -682,10 +695,12 @@
 				076267AF1F6B364A00D31FF1 /* SaveAllShopsInteractorImpl.swift in Sources */,
 				074A37271F61D4F900091C1D /* Shops.swift in Sources */,
 				077879971F7BCB16004C95DA /* CheckAllFilesSavedInteractorImpl.swift in Sources */,
+				0735E8371F7FA906007569B5 /* GetAllAvailableLanguagesInteractor.swift in Sources */,
 				072E5DE31F7053930057FAC5 /* MapShops.swift in Sources */,
 				07E1F34A1F71D947002FEB96 /* DownloadAllActivitiesFakeInteractorImplementation.swift in Sources */,
 				072ACF3D1F69A354007446B3 /* ShopDetailViewController.swift in Sources */,
 				07B06D091F61EA19001A3120 /* DownloadAllShopsInteractorFakeImplementation.swift in Sources */,
+				0735E83B1F7FA916007569B5 /* SetAllAvailableLanguagesInteractor.swift in Sources */,
 				07EEC4131F7E936E00B24F1C /* GetLanguageInteractor.swift in Sources */,
 				079A6CE61F74754A00C7EA28 /* MapActivities.swift in Sources */,
 				07E1F3461F71CECC002FEB96 /* Activities.swift in Sources */,
@@ -693,6 +708,7 @@
 				07B06D0E1F61F6E3001A3120 /* ViewController+CollectionViewController.swift in Sources */,
 				072445691F7D9C80006600AC /* ShopFetchedResultsController.swift in Sources */,
 				072E5DEB1F7069B00057FAC5 /* ExecuteOnceInteractorImpl.swift in Sources */,
+				0735E8391F7FA90E007569B5 /* GetAllAvailableLanguagesInteractorImpl.swift in Sources */,
 				072ACF411F69A49C007446B3 /* DownloadAllShopsInteractorNSURLSessionImpl.swift in Sources */,
 				079A6CE01F74678500C7EA28 /* ActivitiesDetailViewController.swift in Sources */,
 				07E1F3481F71D83A002FEB96 /* DownloadAllActivitiesInteractor.swift in Sources */,

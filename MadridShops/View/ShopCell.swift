@@ -19,8 +19,6 @@ class ShopCell: UICollectionViewCell {
         
         self.label.text = shop.name
         self.shop?.logo.loadImage(into: imageView)
-        // Probar con true y false
-        // Tiene que ver con los límites
         imageView.clipsToBounds = true
         UIView.animate(withDuration: 1.0) {
             self.imageView.layer.cornerRadius = 30

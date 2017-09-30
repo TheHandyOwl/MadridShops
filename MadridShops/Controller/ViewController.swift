@@ -57,24 +57,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     // MARK: - MKMapViewDelegate Delegate
     // Tells the delegate that the map view is about to start rendering some of its tiles
     func mapViewWillStartRenderingMap(_ mapView: MKMapView) {
-        print("Start rendering")
+        //print("Start rendering")
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
-        print("Finish rendering")
+        //print("Finish rendering")
         
+        /*
         let km0 = MapPin(coordinate: CLLocationCoordinate2D(latitude: 40.416676, longitude: -3.703878))
         km0.title = "Punto kilométrico 0"
         km0.subtitle = "El centro de España"
         
         self.map.addAnnotation(km0)
+         */
         
         if let shops = shopFetchedResultsController(context: context).fetchedObjects {
             for shop in shops {
                 let shopLocation = CLLocation(latitude: Double(shop.latitude), longitude: Double(shop.longitude))
-                print("La latitud es: \((shop.latitude)) y longitud \((shop.longitude))")
+                //print("Latitude: \((activity.latitude)) - Longitude \((activity.longitude))")
                 let shopPin = MapPin(coordinate: shopLocation.coordinate, title: shop.name!, subtitle: shop.address!)
-                print("shopPin: \(shopPin)")
                 self.map.addAnnotation(shopPin)
             }
         }
@@ -83,11 +84,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     // Tells the delegate that the specified map view is about to retrieve some map data
     func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-        print("Start loading")
+        //print("Start loading")
     }
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        print("Finish loading")
+        //print("Finish loading")
     }
     
     // Pin items
