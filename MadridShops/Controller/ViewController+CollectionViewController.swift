@@ -22,6 +22,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource 
         
         let shopCD: ShopCD = shopFetchedResultsController(context: context).object(at: indexPath)
         cell.refresh(shop: mapShopCDIntoShop(shopCD: shopCD))
+        cell.backgroundColor = #colorLiteral(red: 0.7529411765, green: 0.8745098039, blue: 0.9882352941, alpha: 1)
         
         return cell
     }

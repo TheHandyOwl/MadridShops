@@ -20,7 +20,7 @@ class ShopCell: UICollectionViewCell {
         self.shop?.logo.loadImage(into: imageView)
         imageView.clipsToBounds = true
         UIView.animate(withDuration: 1.0) {
-            self.imageView.layer.cornerRadius = 30
+            self.imageView.layer.cornerRadius = 20
         }
         
     }
