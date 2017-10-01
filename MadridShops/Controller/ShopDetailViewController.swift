@@ -20,6 +20,8 @@ class ShopDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        
         // Translated items
         let myLanguage = GetLanguageInteractorImpl().execute()
         var descriptionTranslated = ""
@@ -50,12 +52,10 @@ class ShopDetailViewController: UIViewController {
         
         self.title = self.shop.name
         self.shopDetailDescription.text = """
-        ℹ️
-        \(descriptionTranslated)
+        ℹ️ \(descriptionTranslated)
         """
         self.shopOpeningHours.text = """
-        🕑
-        \(openingHoursTranslated)
+        🕑 \(openingHoursTranslated)
         """
         self.shop.image.loadImage(into: shopImage)
     }
