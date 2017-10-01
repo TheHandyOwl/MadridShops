@@ -1,5 +1,8 @@
 //  JsonParser.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import Foundation
 
@@ -18,7 +21,12 @@ func parseShops(data: Data) -> Shops {
             shop.logo = shopJson["logo_img"]! as! String
             shop.image = shopJson["img"]! as! String
             shop.latitude = Float(shopJson["gps_lat"]! as! String)
-            shop.longitude = Float(shopJson["gps_lon"]! as! String)
+            shop.latitude = Float((shopJson["gps_lat"]! as! String)
+                .trimmingCharacters(in: .whitespaces)
+                .replacingOccurrences(of: ",", with: ""))
+            shop.longitude = Float((shopJson["gps_lon"]! as! String)
+                .trimmingCharacters(in: .whitespaces)
+                .replacingOccurrences(of: ",", with: ""))
             
             shop.description_cl = shopJson["description_cl"]! as! String
             shop.description_cn = shopJson["description_cn"]! as! String
@@ -34,6 +42,8 @@ func parseShops(data: Data) -> Shops {
             shop.opening_hours_jp = shopJson["opening_hours_jp"]! as! String
             shop.opening_hours_mx = shopJson["opening_hours_mx"]! as! String
             
+            let mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(shop.latitude!),\(shop.longitude!)&zoom=17&size=375x150&scale=1&markers=\(shop.latitude!),\(shop.longitude!)"
+            shop.cachedMap = mapUrl.downloadImage()
             shops.add(shop: shop)
         }
         
@@ -58,8 +68,12 @@ func parseActivities(data: Data) -> Activities {
             activity.address = activityJson["address"]! as! String
             activity.logo = activityJson["logo_img"]! as! String
             activity.image = activityJson["img"]! as! String
-            activity.latitude = Float(activityJson["gps_lat"]! as! String)
-            activity.longitude = Float(activityJson["gps_lon"]! as! String)
+            activity.latitude = Float((activityJson["gps_lat"]! as! String)
+                .trimmingCharacters(in: .whitespaces)
+                .replacingOccurrences(of: ",", with: ""))
+            activity.longitude = Float((activityJson["gps_lon"]! as! String)
+                .trimmingCharacters(in: .whitespaces)
+                .replacingOccurrences(of: ",", with: ""))
             
             activity.description_cl = activityJson["description_cl"]! as! String
             activity.description_cn = activityJson["description_cn"]! as! String
@@ -75,7 +89,9 @@ func parseActivities(data: Data) -> Activities {
             activity.opening_hours_jp = activityJson["opening_hours_jp"]! as! String
             activity.opening_hours_mx = activityJson["opening_hours_mx"]! as! String
             
-            activities.add(activity: activity)
+            let mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(activity.latitude!),\(activity.longitude!)&zoom=17&size=375x150&scale=1&markers=\(activity.latitude!),\(activity.longitude!)"
+            activity.cachedMap = mapUrl.downloadImage()
+            activities.add(activity: activity)            
         }
         
     } catch {

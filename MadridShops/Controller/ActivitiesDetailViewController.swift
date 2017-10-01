@@ -1,5 +1,8 @@
 //  ActivitiesDetailViewController.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import UIKit
 
@@ -7,7 +10,7 @@ class ActivitiesDetailViewController: UIViewController {
     
     var activity: Activity!
     var myLanguage : String!
-
+    
     @IBOutlet weak var activityDetailDescription: UITextView!
     @IBOutlet weak var activityOpeningHours: UITextView!
     @IBOutlet weak var activityImage: UIImageView!

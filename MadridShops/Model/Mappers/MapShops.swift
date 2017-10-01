@@ -1,5 +1,8 @@
 //  MapShops.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import Foundation
 import CoreData
@@ -28,6 +31,8 @@ func mapShopCDIntoShop(shopCD: ShopCD) -> Shop {
     shop.opening_hours_jp = shopCD.opening_hours_jp ?? ""
     shop.opening_hours_mx = shopCD.opening_hours_mx ?? ""
     
+    shop.cachedMap = shopCD.cachedMap ?? nil
+    
     return shop
 }
 
@@ -55,6 +60,8 @@ func mapShopIntoShopCD(context: NSManagedObjectContext , shop: Shop) -> ShopCD {
     shopCD.opening_hours_es = shop.opening_hours_es
     shopCD.opening_hours_jp = shop.opening_hours_jp
     shopCD.opening_hours_mx = shop.opening_hours_mx
-
+    
+    shopCD.cachedMap = shop.cachedMap ?? nil
+    
     return shopCD
 }

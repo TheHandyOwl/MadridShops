@@ -1,5 +1,8 @@
 //  MapActivities.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import Foundation
 import CoreData
@@ -27,6 +30,8 @@ func mapActivityCDIntoActivity(activityCD: ActivityCD) -> Activity {
     activity.opening_hours_jp = activityCD.opening_hours_jp ?? ""
     activity.opening_hours_mx = activityCD.opening_hours_mx ?? ""
     
+    activity.cachedMap = activityCD.cachedMap ?? nil
+    
     return activity
 }
 
@@ -53,6 +58,8 @@ func mapActivityIntoActivityCD(context: NSManagedObjectContext , activity: Activ
     activityCD.opening_hours_es = activity.opening_hours_es
     activityCD.opening_hours_jp = activity.opening_hours_jp
     activityCD.opening_hours_mx = activity.opening_hours_mx
+    
+    activityCD.cachedMap = activity.cachedMap ?? nil
     
     return activityCD
 }

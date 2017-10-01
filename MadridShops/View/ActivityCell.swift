@@ -1,5 +1,8 @@
 //  ActivityCell.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import UIKit
 
@@ -12,6 +15,7 @@ class ActivityCell: UICollectionViewCell {
     
     func refresh(activity: Activity) {
         self.activity = activity
+        
         self.label.text = activity.name
         self.activity?.logo.loadImage(into: imageView)
         imageView.clipsToBounds = true
