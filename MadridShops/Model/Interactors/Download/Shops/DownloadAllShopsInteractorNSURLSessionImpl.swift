@@ -1,5 +1,8 @@
 //  DownloadAllShopsInteractorNSURLSessionImpl.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import Foundation
 
@@ -10,18 +13,15 @@ class DownloadAllShopsInteractorNSURLSessionImpl: DownloadAllShopsInteractor {
         let session = URLSession.shared
         if let url = URL(string: urlString){
             let task = session.dataTask(with: url) { (data: Data?,
-                                                    response: URLResponse?,
-                                                    error: Error?)
+                response: URLResponse?,
+                error: Error?)
                 in
                 
                 OperationQueue.main.addOperation {
-                    // Ponemos un punto de interrupción para saber si estamos en el principal o no
-                    // Eso o poner un assert
                     assert(Thread.current == Thread.main)
-
+                    
                     if error == nil {
                         // Ok
-                        
                         let shops = parseShops(data: data!)
                         onSuccess(shops)
                     } else {
@@ -31,7 +31,6 @@ class DownloadAllShopsInteractorNSURLSessionImpl: DownloadAllShopsInteractor {
                         }
                     }
                 }
-                
                 
             }
             task.resume()
