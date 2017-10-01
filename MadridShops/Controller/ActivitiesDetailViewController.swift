@@ -53,12 +53,10 @@ class ActivitiesDetailViewController: UIViewController {
         // Absolute items
         self.title = self.activity.name
         self.activityDetailDescription.text = """
-        ℹ️
-        \(descriptionTranslated)
+        ℹ️ \(descriptionTranslated)
         """
         self.activityOpeningHours.text = """
-        🕑
-        \(openingHoursTranslated)
+        🕑 \(openingHoursTranslated)
         """
         self.activity.image.loadImage(into: activityImage)
         
