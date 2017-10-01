@@ -1,5 +1,8 @@
 //  ShopCell.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import UIKit
 
@@ -11,10 +14,6 @@ class ShopCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
     
     func refresh(shop: Shop) {
-        self.shop = shop
-        
-        self.label.text = shop.name
-        // TODO: imageView
         self.shop = shop
         
         self.label.text = shop.name

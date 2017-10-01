@@ -1,5 +1,8 @@
 //  ActivitiesViewController.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import UIKit
 import CoreData
@@ -28,9 +31,9 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         self.activitiesCollectionView.delegate = self
         self.activitiesCollectionView.dataSource = self
         
-        let madridLocation = CLLocation(latitude: 40.416646, longitude: -3.703818)
+        let madridLocation = CLLocation(latitude: 40.416775, longitude: -3.703790)
         //self.map.setCenter(madridLocation.coordinate, animated: true)
-        let region = MKCoordinateRegion(center: madridLocation.coordinate, span: MKCoordinateSpanMake(0.1, 0.1))
+        let region = MKCoordinateRegion(center: madridLocation.coordinate, span: MKCoordinateSpanMake(0.01, 0.01))
         self.map.setRegion(region, animated: true)
         
     }
@@ -64,11 +67,11 @@ class ActivitiesViewController: UIViewController, CLLocationManagerDelegate, MKM
         //print("Finish rendering")
         
         /*
-        let km0 = MapPin(coordinate: CLLocationCoordinate2D(latitude: 40.416676, longitude: -3.703878))
-        km0.title = "Punto kilométrico 0"
-        km0.subtitle = "El centro de España"
-        
-        self.map.addAnnotation(km0)
+         let km0 = MapPin(coordinate: CLLocationCoordinate2D(latitude: 40.416676, longitude: -3.703878))
+         km0.title = "Punto kilométrico 0"
+         km0.subtitle = "El centro de España"
+         
+         self.map.addAnnotation(km0)
          */
         
         if let activities = activityFetchedResultsController(context: context).fetchedObjects {

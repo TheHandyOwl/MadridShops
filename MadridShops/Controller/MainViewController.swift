@@ -1,17 +1,20 @@
 //  MainViewController.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import UIKit
 import CoreData
 
 class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     // MARK: - IBOutlets
     @IBOutlet weak var customImageLoader: UIImageView!    
     @IBOutlet weak var activityLoader: UIActivityIndicatorView!
-   
+    
     @IBOutlet weak var languagePicker: UIPickerView!
-        
+    
     @IBOutlet weak var viewActivitiesButton: UIButton!
     @IBOutlet weak var viewShopsButton: UIButton!
     @IBOutlet weak var connectionAlertLabel: UILabel!
@@ -29,7 +32,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     var myLanguage : String = "en"
     var availableLanguages : [String] = ["cl", "cn", "en", "es", "jp", "mx"]
-
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -40,7 +43,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         setupUI()
         checkDataThenNetwork()
-       
+        
     }
     
     
@@ -108,7 +111,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         viewShopsButton.isHidden = false
         languagePicker.isHidden = false
     }
-   
+    
     
     // MARK: - Downloading data
     func downloadData() {
@@ -120,30 +123,38 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func initializedShopsData() {
-        let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsInteractorNSURLSessionImpl()
-        
-        downloadShopsInteractor.execute { (shops: Shops) in
-            self.shops = shops
+        if !CheckGenericOnceInteractorImpl().execute(item: "downloadingShops"){
+            SetGenericOnceInteractorImpl().execute(item: "downloadingShops")
             
-            let cacheInteractor = SaveAllShopsInteractorImpl()
-            cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
-                self.initializedActivitiesData()
-            })
+            let downloadShopsInteractor: DownloadAllShopsInteractor = DownloadAllShopsInteractorNSURLSessionImpl()
+            
+            downloadShopsInteractor.execute { (shops: Shops) in
+                self.shops = shops
+                
+                let cacheInteractor = SaveAllShopsInteractorImpl()
+                cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
+                    self.initializedActivitiesData()
+                })
+            }
         }
     }
     
     func initializedActivitiesData() {
-        let downloadActivitiesInteractor: DownloadAllActivitiesInteractor = DownloadAllActivitiesInteractorNSURLSessionImpl()
-        
-        downloadActivitiesInteractor.execute { (activities: Activities) in
-            self.activities = activities
+        if !CheckGenericOnceInteractorImpl().execute(item: "downloadingActivities"){
+            SetGenericOnceInteractorImpl().execute(item: "downloadingActivities")
             
-            let cacheInteractor = SaveAllActivitiesInteractorImpl()
-            cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
-                SaveAndExecuteOnceInteractorImpl().execute(item: "allFilesSaved") {
-                    self.loadingActivityOff()
-                }
-            })
+            let downloadActivitiesInteractor: DownloadAllActivitiesInteractor = DownloadAllActivitiesInteractorNSURLSessionImpl()
+            
+            downloadActivitiesInteractor.execute { (activities: Activities) in
+                self.activities = activities
+                
+                let cacheInteractor = SaveAllActivitiesInteractorImpl()
+                cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
+                    SaveAndExecuteOnceInteractorImpl().execute(item: "allFilesSaved") {
+                        self.loadingActivityOff()
+                    }
+                })
+            }
         }
     }
     
@@ -199,20 +210,25 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func updateLabelColourWhenNotReachable(_ reachability: Reachability) {
-        self.connectionAlertLabel.isHidden = false
-        self.stopNotifier()
-        self.reachability = nil
+        if !CheckGenericOnceInteractorImpl().execute(item: "allFilesSaved") {
+            self.connectionAlertLabel.isHidden = false
+            self.stopNotifier()
+            self.reachability = nil
         
-        if !CheckGenericOnceInteractorImpl().execute(item: "alert") {
-            SetGenericOnceInteractorImpl().execute(item: "alert")
-            
-            let alert = UIAlertController(title: "No data connection available", message: "Click Ok to reload", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default){
-                UIAlertAction in
-                RemoveGenericOnceInteractorImpl().execute(item: "alert")
+            if !CheckGenericOnceInteractorImpl().execute(item: "alert") {
+                SetGenericOnceInteractorImpl().execute(item: "alert")
+                
+                let alert = UIAlertController(title: "No data connection available or server not reachable", message: "Click Ok to try again", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default){
+                    UIAlertAction in
+                    RemoveGenericOnceInteractorImpl().execute(item: "alert")
+                }
+                alert.addAction(action)
+                present(alert, animated: true)
             }
-            alert.addAction(action)
-            present(alert, animated: true)
+        }
+        else {
+            self.stopNotifier()
         }
     }
     
@@ -239,7 +255,7 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let vc = segue.destination as! ViewController
             vc.context = self.context
         }
-
+        
         if segue.identifier == "ShowActivitiesSegue" {
             let vc = segue.destination as! ActivitiesViewController
             vc.context = self.context
@@ -266,5 +282,5 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     
     // MARK: - IBActions
-
+    
 }

@@ -1,5 +1,8 @@
 //  DownloadAllActivitiesInteractorNSURLSessionImpl.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import Foundation
 
@@ -15,8 +18,6 @@ class DownloadAllActivitiesInteractorNSURLSessionImpl: DownloadAllActivitiesInte
                 in
                 
                 OperationQueue.main.addOperation {
-                    // Ponemos un punto de interrupción para saber si estamos en el principal o no
-                    // Eso o poner un assert
                     assert(Thread.current == Thread.main)
                     
                     if error == nil {
@@ -28,6 +29,7 @@ class DownloadAllActivitiesInteractorNSURLSessionImpl: DownloadAllActivitiesInte
                         }
                     }
                 }
+                
             }
             task.resume()
         }
@@ -35,7 +37,6 @@ class DownloadAllActivitiesInteractorNSURLSessionImpl: DownloadAllActivitiesInte
     
     func execute(onSuccess: @escaping (Activities) -> Void) {
         execute(onSuccess: onSuccess, onError: nil)
-    }
-    
+    }    
     
 }

@@ -196,10 +196,10 @@
 		072ACF421F69A715007446B3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0779F2A61F811F3200F4C711 /* MapKit */,
 				073510DC1F7D6F7500024BC0 /* CoreData */,
 				073510DD1F7D6F7F00024BC0 /* Reachability */,
 				072ACF431F69A728007446B3 /* String+Image.swift */,
-				0797408C1F787FE900D15DFE /* MapPin.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -398,6 +398,14 @@
 				074A37281F61DA8300091C1D /* ShopsTests.swift */,
 			);
 			path = MadridShopsTests;
+			sourceTree = "<group>";
+		};
+		0779F2A61F811F3200F4C711 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				0797408C1F787FE900D15DFE /* MapPin.swift */,
+			);
+			path = MapKit;
 			sourceTree = "<group>";
 		};
 		07B06D031F61E080001A3120 /* Interactors */ = {

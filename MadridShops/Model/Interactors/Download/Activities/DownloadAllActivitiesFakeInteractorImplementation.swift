@@ -1,5 +1,8 @@
 //  DownloadAllActivitiesFakeInteractorImplementation.swift
 //  MadridShops
+//
+//  Created by Carlos on 01/10/17.
+//  Copyright © 2017 THO. All rights reserved.
 
 import Foundation
 
@@ -14,16 +17,13 @@ class DownloadAllActivitiesInteractorFakeImplementation: DownloadAllActivitiesIn
         
         for i in 0...10 {
             let activity = Activity(name:"Activity number \( i )")
-            activity.address = "Address \( 1 )"
+            activity.address = "Address \( i )"
             
-            activities.add(activity: activity)
-            
+            activities.add(activity: activity)            
         }
         
         OperationQueue.main.addOperation {
             onSuccess(activities)
-            
         }
     }
-    
 }
