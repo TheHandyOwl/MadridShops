@@ -22,6 +22,7 @@ extension ActivitiesViewController : UICollectionViewDelegate, UICollectionViewD
         
         let activityCD: ActivityCD = activityFetchedResultsController(context: context).object(at: indexPath)
         cell.refresh(activity: mapActivityCDIntoActivity(activityCD: activityCD))
+        cell.backgroundColor = #colorLiteral(red: 0.7529411765, green: 0.8745098039, blue: 0.9882352941, alpha: 1)
         
         return cell
     }
