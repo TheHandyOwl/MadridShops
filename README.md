@@ -5,6 +5,25 @@ Practical exercise for the KeepCoding advanced iOS course.
 A map with 'activities' or 'shops' information will be displayed on separate screens. Data will be downloaded from an external json file and will be stored with Core Data.
 
 
+# Installation
+
+You have to clone the project:
+
+> git clone https://github.com/TheHandyOwl/MadridShops.git AnotherShopApp
+
+In the folder's project you should install the CocoaPods dependencies:
+
+> pod install
+
+You can find more information abaout CocoaPods in:
+
+[https://guides.cocoapods.org/using/getting-started.html](https://guides.cocoapods.org/using/getting-started.html "CocoaPods - Getting Started")
+
+It's time to run the project!
+
+> open MadridShops.xcworkspace
+
+
 # Requirements
 
 1. When starting the App for the first time, if there's Internet connection it will download all information from the Shops access point (see below), including all images.
