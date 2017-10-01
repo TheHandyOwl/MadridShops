@@ -15,7 +15,7 @@ In the folder's project you should install the CocoaPods dependencies:
 
 > pod install
 
-You can find more information abaout CocoaPods in:
+You can find more information about CocoaPods in:
 
 [https://guides.cocoapods.org/using/getting-started.html](https://guides.cocoapods.org/using/getting-started.html "CocoaPods - Getting Started")
 
