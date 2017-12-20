@@ -42,8 +42,8 @@ func parseShops(data: Data) -> Shops {
             shop.opening_hours_jp = shopJson["opening_hours_jp"]! as! String
             shop.opening_hours_mx = shopJson["opening_hours_mx"]! as! String
             
-            let mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(shop.latitude!),\(shop.longitude!)&zoom=17&size=375x150&scale=1&markers=\(shop.latitude!),\(shop.longitude!)"
-            shop.cachedMap = mapUrl.downloadImage()
+            //let mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(shop.latitude!),\(shop.longitude!)&zoom=17&size=375x150&scale=1&markers=\(shop.latitude!),\(shop.longitude!)"
+            //shop.cachedMap = mapUrl.downloadImage()
             shops.add(shop: shop)
         }
         
@@ -89,8 +89,8 @@ func parseActivities(data: Data) -> Activities {
             activity.opening_hours_jp = activityJson["opening_hours_jp"]! as! String
             activity.opening_hours_mx = activityJson["opening_hours_mx"]! as! String
             
-            let mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(activity.latitude!),\(activity.longitude!)&zoom=17&size=375x150&scale=1&markers=\(activity.latitude!),\(activity.longitude!)"
-            activity.cachedMap = mapUrl.downloadImage()
+            //let mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(activity.latitude!),\(activity.longitude!)&zoom=17&size=375x150&scale=1&markers=\(activity.latitude!),\(activity.longitude!)"
+            //activity.cachedMap = mapUrl.downloadImage()
             activities.add(activity: activity)            
         }
         
